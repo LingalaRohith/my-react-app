@@ -1,0 +1,48 @@
+.header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white
+
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+button {
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+    padding: 10px 20px; 
+    margin-left: 10px; 
+    font-weight: bold; 
+    color: white;
+    font-size: 15px;
+}
+
+button:hover {
+    color: #dbdae4;
+}
+
+.signup {
+    background-color: #ffffff; 
+    color: #6a5acd;
+    border: 1px solid #6a5acd; 
+    border-radius: 5px; 
+    font-size: 15px;
+    margin-right: 0px;
+    margin-left: 30px;
+}
+
+.signup:hover {
+    background-color: #f0eff8; 
+}
+
+.buttons-container {
+    display: flex; 
+    align-items: center; 
+  }
+
