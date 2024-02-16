@@ -1,9 +1,12 @@
+
 .header {
     padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white
+    color: white;
+    height: 40px;
+    background-color: #7F69CE;
 
 }
 
@@ -29,8 +32,8 @@ button:hover {
 
 .signup {
     background-color: #ffffff; 
-    color: #6a5acd;
-    border: 1px solid #6a5acd; 
+    color: #7F69CE;
+    border: 1px solid #7F69CE; 
     border-radius: 5px; 
     font-size: 15px;
     margin-right: 0px;

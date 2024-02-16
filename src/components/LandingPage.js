@@ -1,4 +1,5 @@
 import Header from './Header';
+import './landingpage.css';
 
 function LandingPage() {
     return (
