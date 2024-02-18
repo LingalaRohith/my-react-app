@@ -14,23 +14,24 @@ const Header = () => {
     <div className="header">
       <h1>Cinema E-Booking</h1>
       <div className="buttons-container">
-        <Link to="/moviespage">
+        {currentPage !== '/verification' && (
+          <Link to="/moviespage">
           <button>Browse Movies</button>
         </Link>
-        
-        {currentPage === '/signup' && (
+        )}
+        {currentPage !== '/' && currentPage !== '/verification' && (
           <Link to="/">
             <button>Home</button>
           </Link>
         )}
         
-        {currentPage !== '/login' && (
+        {currentPage !== '/login' && currentPage !== '/verification' && (
           <Link to="/login">
             <button>Login</button>
           </Link>
         )}
         
-        {currentPage !== '/signup' && (
+        {currentPage !== '/signup' && currentPage !== '/verification' && (
           <Link to="/signup">
             <button className="signup">Signup</button>
           </Link>

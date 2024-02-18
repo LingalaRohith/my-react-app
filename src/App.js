@@ -6,6 +6,7 @@ import LandingPage from "./components/LandingPage";
 import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import MoviesPage from "./components/MoviesPage";
+import Verification from "./components/Verification";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                     <Route path="signup" element={<Signup />} />
                     <Route path="login" element={<Login />} />
                     <Route path="moviespage" element={<MoviesPage />} />
+                    <Route path="verification" element={<Verification />} />
                 </Routes>
         </Router>
     </div>

@@ -1,0 +1,24 @@
+.verify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+}
+
+input {
+    max-width: 400px;
+}
+
+.verify h1 {
+    font-size: 50px;
+    padding-bottom: 0;
+    margin: 10px;
+    border-bottom: 3px solid #7F69CE;
+    
+}
+
+button {
+    background-color: #7F69CE;
+    border-radius: 5px;
+    margin-top: 10px;
+}
