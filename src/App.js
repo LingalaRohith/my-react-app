@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import Header from './components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from "./components/LandingPage";
-import Signup from "./components/Signup/Signup";
-import Login from "./components/Login/Login";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
 import MoviesPage from "./components/MoviesPage";
 import Verification from "./components/Verification";
 
