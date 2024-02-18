@@ -30,7 +30,7 @@ const Header = () => {
           </Link>
         )}
         
-        {currentPage !== '/signup' && currentPage !== '/login' && (
+        {currentPage !== '/signup' && (
           <Link to="/signup">
             <button className="signup">Signup</button>
           </Link>

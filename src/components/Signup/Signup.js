@@ -29,6 +29,7 @@ const Signup = () => {
 
                 <input type="submit" value="Create Account" className="submit-button"/>
             </form>
+            <p>Already have an account? <a href="/login">Log in here!</a></p>
         </div>
         </div>
     );
