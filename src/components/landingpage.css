@@ -3,3 +3,35 @@
     height: 100vh; 
     width: 100%;
 }
+
+.movies-and-search-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+}
+
+h2 {
+    color: black;
+    margin-bottom: 10px;
+}
+
+.search-container {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+select,
+input {
+    padding: 8px;
+    margin-right: 10px; 
+    font-size: 16px; 
+}
+
+button {
+    font-size: 16px;
+}
+
+
