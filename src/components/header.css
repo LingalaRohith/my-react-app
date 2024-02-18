@@ -1,51 +1,37 @@
-
 .header {
     padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: white;
-    height: 40px;
     background-color: #7F69CE;
-
-}
-
-.header h1 {
+  }
+  
+  .header h1 {
     margin: 0;
-    font-size: 40px;
-}
-
-button {
+    font-size: 24px; /* Adjusted font-size for balance */
+    flex-grow: 1; /* This will push the buttons to the right */
+  }
+  
+  .logo {
+    height: 30px; /* Adjust the size of the logo */
+    margin-right: 20px; /* Add some spacing between the logo and the title */
+  }
+  
+  button {
     background-color: transparent;
     border: 0px;
     cursor: pointer;
-    padding: 10px 20px; 
-    margin-left: 10px; 
-    font-weight: bold; 
+    padding: 10px 20px;
+    margin-left: 10px;
+    font-weight: bold;
     color: white;
     font-size: 15px;
-}
-
-button:hover {
-    color: #dbdae4;
-}
-
-.signup {
-    background-color: #ffffff; 
-    color: #7F69CE;
-    border: 1px solid #7F69CE; 
-    border-radius: 5px; 
-    font-size: 15px;
-    margin-right: 0px;
-    margin-left: 30px;
-}
-
-.signup:hover {
-    background-color: #f0eff8; 
-}
-
-.buttons-container {
-    display: flex; 
-    align-items: center; 
   }
-
+  
+  button:hover {
+    color: #dbdae4;
+  }
+  
+  /* Other styles */
+  

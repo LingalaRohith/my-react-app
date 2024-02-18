@@ -1,46 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import logo from '../resources/logo.png';
+import { Link } from 'react-router-dom';
 import './header.css';
 
-const Header = () => {
-  const location = useLocation();
-  const [currentPage, setCurrentPage] = useState('');
+const Hdr = ({ isLoggedIn, setLoggedIn }) => {
 
-  useEffect(() => {
-    setCurrentPage(location.pathname);
-  }, [location]);
+  const handleLogout = () => {
+    localStorage.setItem('auth-token', '');
+    setLoggedIn(false);
+  };
 
   return (
-    <div className="header">
-      <h1>Cinema E-Booking</h1>
-      <div className="buttons-container">
-        {currentPage !== '/verification' && (
-          <Link to="/moviespage">
-          <button>Browse Movies</button>
-        </Link>
-        )}
-        {currentPage !== '/' && currentPage !== '/verification' && (
-          <Link to="/">
-            <button>Home</button>
-          </Link>
-        )}
-        
-        {currentPage !== '/login' && currentPage !== '/verification' && (
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-        )}
-        
-        {currentPage !== '/signup' && currentPage !== '/verification' && (
-          <Link to="/signup">
-            <button className="signup">Signup</button>
-          </Link>
+    <div className='header'>
+      <Link to="/">
+        <img src={logo} className="logo" alt="logo" /> {/* Updated line */}
+      </Link>
+      <h1>Cinema E-Booking System</h1>
+      <div className="buttons">
+        {isLoggedIn ? (
+          <>
+            <Link to="/">
+              <button>Home</button>
+            </Link>
+            <Link to="/books">
+              <button>Books</button>
+            </Link>
+            <Link to="/">
+              <button onClick={handleLogout}>Logout</button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+            <Link to="/signup">
+              <button>Signup</button>
+            </Link>
+            <Link to="/">
+              <button>Home</button>
+            </Link>
+          </>
         )}
       </div>
     </div>
   );
 };
 
-export default Header;
-
-
+export default Hdr;
