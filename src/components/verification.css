@@ -17,8 +17,9 @@ input {
     
 }
 
-button {
+.verify button {
     background-color: #7F69CE;
     border-radius: 5px;
     margin-top: 10px;
+    margin-left: 75px;
 }
