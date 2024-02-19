@@ -2,18 +2,15 @@ import React, { useState } from 'react';
 import Header from './Header';
 import './landingpage.css';
 
-// Sample data for currently running movies
 const currentlyRunningMovies = [
-  { title: 'Movie A', genre: 'Action', date: '2021-01-01' },
-  { title: 'Movie B', genre: 'Drama', date: '2021-01-02' },
+  { title: 'Movie A', genre: 'Action', date: '2024-01-01' },
+  { title: 'Movie B', genre: 'Drama', date: '2024-01-02' },
   // Add more movie objects here...
 ];
 
-// Sample data for coming soon movies
 const comingSoonMovies = [
-  { title: 'Movie C', genre: 'Thriller', date: '2021-02-01' },
-  { title: 'Movie D', genre: 'Comedy', date: '2021-02-15' },
-  // Add more movie objects here...
+  { title: 'Movie C', genre: 'Thriller', date: '2024-02-01' },
+  { title: 'Movie D', genre: 'Comedy', date: '2024-02-15' },
 ];
 
 function LandingPage() {
@@ -63,22 +60,28 @@ function LandingPage() {
           />
           <button type="button" onClick={handleSearch}>Search</button>
         </div>
-        <h2>CURRENTLY RUNNING</h2>
-        {filteredCurrentlyRunningMovies.map((movie, index) => (
-          <div key={index}>
-            <h3>{movie.title}</h3>
-            <p>Genre: {movie.genre}</p>
-            <p>Show Time: {movie.date}</p>
+        <div className="sections">
+          <h2>CURRENTLY RUNNING</h2>
+          <div className='list'>
+          {filteredCurrentlyRunningMovies.map((movie, index) => (
+            <div key={index} className="mov">
+              <h3>{movie.title}</h3>
+              <p>Genre: {movie.genre}</p>
+              <p>Show Time: {movie.date}</p>
+            </div>
+          ))}
           </div>
-        ))}
-        <h2>COMING SOON</h2>
-        {filteredComingSoonMovies.map((movie, index) => (
-          <div key={index}>
-            <h3>{movie.title}</h3>
-            <p>Genre: {movie.genre}</p>
-            <p>Release Date: {movie.date}</p>
+          <h2>COMING SOON</h2>
+          <div className='list'>
+          {filteredComingSoonMovies.map((movie, index) => (
+            <div key={index} className="mov">
+              <h3>{movie.title}</h3>
+              <p>Genre: {movie.genre}</p>
+              <p>Release Date: {movie.date}</p>
+            </div>
+          ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ function Login() {
               </div>
                 <input type="submit" value="Submit" className="submit-button"/>
             </form>
-            <p>Don't have an account? <a href="/signup">Sign up here!</a></p>
+            <p class="lin"> Don't have an account? <a href="/signup">Sign up here!</a></p>
         </div>
       </div>
       
