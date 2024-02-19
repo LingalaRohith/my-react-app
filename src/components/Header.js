@@ -15,7 +15,7 @@ const Hdr = ({ isLoggedIn, setLoggedIn }) => {
       <Link to="/">
         <img src={logo} className="logo" alt="logo" /> {/* Updated line */}
       </Link>
-      <h1>Cinema E-Booking System</h1>
+      <h1>Cinema Hub</h1>
       <div className="buttons">
         {isLoggedIn ? (
           <>

@@ -1,5 +1,94 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* This ensures that the html and body elements take up the full viewport height */
+    width: 100%; /* This ensures that the html and body elements take up the full viewport width */
+    overflow-x: hidden; /* This prevents any horizontal scroll due to padding/margin */
+}
+
 .App {
-    background-color: #7F69CE; 
+    background-color: #081752; 
     height: 100vh; 
     width: 100%;
+    overflow: hidden; /* This prevents any scrollbars if the content is larger than the viewport */
 }
+
+.movies-and-search-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+}
+
+
+h2 {
+    font-weight: 700;
+    font-size: 1.5em;
+    font-family: proxima-nova,Helvetica,Arial,sans-serif;
+    color: rgb(255, 253, 253);
+    margin-bottom: 10px;
+}
+
+select,
+input,
+button {
+    font-family: proxima-nova, Helvetica, Arial, sans-serif;
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 20px; /* fields and button rounded */
+    border: 1px solid #ccc; /* Adds a light grey border */
+}
+
+button {
+    font-size: 16px;
+    background-color: #4a90e2; 
+    color: white; /* Text color for the button */
+    border: 2px solid #4a90e2; /* Border color to match the background for a solid look */
+    cursor: pointer; /* Changes the cursor to indicate the button is clickable */
+    padding: 10px 20px; /* Larger padding for a bigger button */
+    transition: all 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the button */
+button:hover {
+    background-color: #367cd5; 
+    border-color: #367cd5;
+}
+
+.search-container {
+    display: flex; 
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically if there's extra space */
+    margin-top: 20px; 
+}
+
+.current-movies-container {
+    background-color: #7F69CE;
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+}
+
+.coming-soon-movies-container {
+    background-color: #7F69CE;
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+}
+
+.movie-card {
+    margin: 10px;
+    text-align: center;
+}
+
+.movie-card img {
+    width: 200px; 
+    height: 300px; 
+    object-fit: cover; 
+}
+
+.movie-card h3 {
+    margin-top: 5px; 
+}
+
+

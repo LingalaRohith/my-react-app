@@ -7,6 +7,8 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import MoviesPage from "./components/MoviesPage";
 import Verification from "./components/Verification";
+import RegistrationConfirmation from './components/RegistrationConfirmation';
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
     <div>
         <Router>
                 <Routes>
+                <Route path="/registration-confirmation" element={<RegistrationConfirmation />} />
                     <Route path="/" element={<LandingPage />} />
                     <Route path="signup" element={<Signup />} />
                     <Route path="login" element={<Login />} />
