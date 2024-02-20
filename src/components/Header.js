@@ -22,8 +22,8 @@ const Hdr = ({ isLoggedIn, setLoggedIn }) => {
             <Link to="/">
               <button>Home</button>
             </Link>
-            <Link to="/books">
-              <button>Books</button>
+            <Link to="/MoviesPage">
+              <button>Movies</button>
             </Link>
             <Link to="/">
               <button onClick={handleLogout}>Logout</button>
