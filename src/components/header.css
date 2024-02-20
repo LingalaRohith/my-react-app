@@ -12,13 +12,13 @@
     font-weight: 400;
     font-style: normal;
     margin: 0;
-    font-size: 44px; /* Adjusted font-size for balance */
-    flex-grow: 1; /* This will push the buttons to the right */
+    font-size: 44px;
+    flex-grow: 1; 
   }
   
   .logo {
-    height: 70px; /* Adjust the size of the logo */
-    margin-right: 20px; /* Add some spacing between the logo and the title */
+    height: 70px; 
+    margin-right: 20px; 
   }
   
   button {
@@ -35,6 +35,4 @@
   button:hover {
     color: #dbdae4;
   }
-  
-  /* Other styles */
-  
+    
