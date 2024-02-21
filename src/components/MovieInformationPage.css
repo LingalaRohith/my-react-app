@@ -1,0 +1,79 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #081752;
+}
+
+.App {
+    background-color: #081752;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+h2 {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: rgb(255, 253, 253);
+    margin-bottom: 10px;
+    margin:auto;
+}
+
+
+select,
+input,
+button {
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 20px; 
+    border: 1px solid #ccc; 
+}
+
+button {
+    font-size: 16px;
+    background-color: #4a90e2; 
+    color: white;
+    border: 2px solid #4a90e2; 
+    cursor: pointer; 
+    padding: 10px 20px; 
+    transition: all 0.3s; 
+}
+
+button:hover {
+    background-color: #367cd5; 
+    border-color: #367cd5;
+}
+
+.modal-content {
+    display: flex;
+    align-items: center; /* This vertically centers the iframe and buttons */
+    gap: 10px; /* Adjust this value to control the space between the iframe and the buttons */
+    margin: auto;
+}
+
+.bttns {
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    justify-content: center; /* Center the buttons vertically within their container */
+    padding-left: 10px; /* Adjust this value to control the space directly next to the iframe */
+}
+
+.App iframe {
+    /* Your existing styles */
+    margin: 0; /* Ensure there's no default margin adding unwanted space */
+}
+
+
+.App p {
+    font-weight: 700;
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 10px;
+    margin: auto
+}

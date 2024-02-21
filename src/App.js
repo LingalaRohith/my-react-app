@@ -10,6 +10,7 @@ import Verification from "./components/Verification";
 import RegistrationConfirmation from './components/RegistrationConfirmation';
 import EditProfile from "./components/EditProfile";
 import AdminMain from "./components/AdminMain";
+import MovieInformationPage from "./components/MovieInformationPage";
 
 
 
@@ -28,6 +29,8 @@ function App() {
                     <Route path="verification" element={<Verification />} />
                     <Route path="editprofile" element={<EditProfile isLoggedIn={true} />} />
                     <Route path="admin" element={<AdminMain isLoggedIn={true} />} />
+                    <Route path="movie-info" element={<MovieInformationPage />}/>
+                    <Route path="/" component={<LandingPage />} />
                 </Routes>
         </Router>
     </div>
