@@ -1,12 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import Header from './Header';
 import "./admin.css";
 
 function AdminMain({isLoggedIn}) {
-    const navigate = useNavigate(); // Hook for navigation
+    const navigate = useNavigate(); 
 
-    // Function to navigate to different paths
     const handleNavigation = (path) => {
         navigate(path);
     };
@@ -17,7 +16,6 @@ function AdminMain({isLoggedIn}) {
             <div className='admin'>
                 <h1>Administrator Home Page</h1>
                 <h2>Options: </h2>
-                {/* Update buttons to include onClick event handlers */}
                 <button onClick={() => handleNavigation('/admin/manage-users')}>Manage Users</button>
                 <button onClick={() => handleNavigation('/admin/manage-movies')}>Manage Movies</button>
                 <button onClick={() => handleNavigation('/admin/manage-promotions')}>Manage Promotions</button>

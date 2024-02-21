@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import Header from './Header'; 
-import './ManageUsers.css'; 
+import Header from './Header';
+import './ManageUsers.css';
 
 function ManageUsers() {
     const initialUsers = [
-        { id: 1, name: 'John Doe', email: 'john@example.com' },
-        { id: 2, name: 'Jane Doe', email: 'jane@example.com' },
+        { id: 1, name: 'John Cena', email: 'johnc12@yahoo.com' },
+        { id: 2, name: 'Jane Johnson', email: 'janejohnson@hotmail.com' },
+        { id: 3, name: 'Emma Thompson', email: 'emmathompson@gmail.com'}, 
+        { id: 4, name: 'Johnny Depp', email: 'johnnypoo450@gmail.com' },
+        { id: 5, name: 'Rhea Kartha', email: 'rheamonkey@gmail.com' },
+        { id: 6, name: 'Cate Redhead', email: 'categinger@gmail.com'}, 
     ];
 
     const [users, setUsers] = useState(initialUsers);
@@ -13,8 +17,9 @@ function ManageUsers() {
     const [newUserEmail, setNewUserEmail] = useState('');
 
     const addUser = () => {
+        if (!newUserName || !newUserEmail) return; // Basic validation
         const newUser = {
-            id: users.length + 1,
+            id: users.length + 1, // Simple id assignment
             name: newUserName,
             email: newUserEmail,
         };
@@ -29,22 +34,34 @@ function ManageUsers() {
 
     return (
         <div>
-            <Header /> {/* Render the Header at the top */}
+            <Header />
             <div className="manage-users">
-                <h2>Manage Users</h2>
+                <h5>Manage Users</h5>
                 <div className="add-user-form">
                     <input type="text" placeholder="Name" value={newUserName} onChange={(e) => setNewUserName(e.target.value)} />
                     <input type="email" placeholder="Email" value={newUserEmail} onChange={(e) => setNewUserEmail(e.target.value)} />
-                    <button onClick={addUser}>Add User</button>
+                    <button onClick={addUser} className="btn btn-add">Add User</button>
                 </div>
-                <ul className="user-list">
-                    {users.map((user) => (
-                        <li key={user.id}>
-                            <span>{user.name} ({user.email})</span>
-                            <button onClick={() => deleteUser(user.id)}>Delete</button>
-                        </li>
-                    ))}
-                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map((user) => (
+                            <tr key={user.id}>
+                                <td>{user.id}</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <button onClick={() => deleteUser(user.id)} className="btn btn-delete">Delete</button>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     );
