@@ -9,8 +9,6 @@ const MovieModal = ({ movie, onClose }) => {
     <div className="modal-backdrop">
       <div className="modal">
         <h2>{movie.title}</h2>
-        <p>Genre: {movie.genre}</p>
-        <p>Showtime: {movie.date}</p>
         <iframe
           width="560"
           height="315"
@@ -86,6 +84,7 @@ function LandingPage() {
       <>
         <div key={index} className="mov" onClick={() => openModalWithMovie(movie, index, listType)}>
           <img src={movie.img} alt={movie.title} style={{cursor: 'pointer'}} height={325} width={200}/>
+          <p>{movie.title}</p>
         </div>
         {selectedMovie && selectedMovieIndex === index && selectedMovieListType === listType && (
           <MovieModal movie={selectedMovie} onClose={closeModal} />
