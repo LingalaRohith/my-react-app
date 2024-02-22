@@ -2,8 +2,15 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import './MovieInformationPage.css';
+import { useNavigate } from 'react-router-dom';
 
 function MovieInformationPage() {
+    const navigate = useNavigate();
+
+  
+  const handleNavigation = () => {
+    navigate('/bookseats');
+  };
   const location = useLocation();
   const { movie } = location.state || {}; // Fallback to empty object if state is undefined
 
@@ -23,7 +30,7 @@ function MovieInformationPage() {
           allowFullScreen>
         </iframe>
         <div class="bttns">
-            <button onClick>Book Seats</button>
+            <button onClick={handleNavigation}>Book Seats</button>
         </div>
         </div>
       {/* Add other components or data fetching logic as needed */}

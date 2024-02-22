@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from './Header';
 import './landingpage.css';
 import { useNavigate } from 'react-router-dom';
-import MovieInformationPage from './MovieInformationPage';
 
 
 const MovieModal = ({ movie, onClose }) => {

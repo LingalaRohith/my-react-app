@@ -12,6 +12,7 @@ import MovieInformationPage from "./components/MovieInformationPage";
 import ManageUsers from "./components/ManageUsers"; 
 import ManageMovies from "./components/ManageMovies"; 
 import ManagePromotions from "./components/ManagePromotions"; 
+import BookSeats from "./components/BookSeats";
 
 function App() {
     const [isLoggedIn, setLoggedIn] = useState(false);
@@ -33,6 +34,7 @@ function App() {
                     <Route path="admin/manage-users" element={<ManageUsers />} />
                     <Route path="admin/manage-movies" element={<ManageMovies />} />
                     <Route path="admin/manage-promotions" element={<ManagePromotions />} />
+                    <Route path="bookseats" element={<BookSeats />} />
                 </Routes>
         </Router>
     </div>

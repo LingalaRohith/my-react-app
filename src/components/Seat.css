@@ -1,0 +1,11 @@
+.seat {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .selected {
+    background-color: #28a745; /* Green color for selected seats */
+  }
