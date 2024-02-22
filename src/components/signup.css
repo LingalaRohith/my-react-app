@@ -1,5 +1,6 @@
 body {
-    background-color: white;
+  background-color: rgb(255, 255, 255) !important;
+
 }
 .signup-container {
     max-width: 600px;
@@ -68,7 +69,7 @@ body {
   
   .optional-button:hover,
   .submit-button:hover {
-    background-color: #7F69CE;
+    background-color: #0aa23a;
   }
   
   h3 {
