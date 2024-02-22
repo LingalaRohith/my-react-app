@@ -76,6 +76,7 @@ button:hover {
     display: flex;
     justify-content: space-around; 
     flex-wrap: wrap; 
+    margin-top: 30px;
 }
 
 .movie-card {
@@ -96,6 +97,7 @@ button:hover {
 
 .list {
     display: flex;
+    margin-top: 20px;
 }
 
 .mov {
@@ -147,6 +149,7 @@ button:hover {
 
 .modal h2 {
     color: black;
+    margin-bottom: 20px;
 }
 
 .bttns {
@@ -160,3 +163,14 @@ p {
         color: rgb(255, 253, 253);
         margin-bottom: 10px;
 }
+.coming-soon-heading {
+    margin-top: 40px; 
+  }
+
+.list .movie-title {
+    margin-top: 10px;
+    margin-bottom:10px; 
+    font-size:1.1em; 
+    color: #ffffff; 
+  }
+  
