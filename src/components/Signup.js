@@ -19,7 +19,7 @@ const Signup = () => {
         <div>
             <Header />
             <div className="signup-container">
-                <h3>Sign up now!</h3>
+                <h3>Sign Up</h3>
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <div className="input-group">
                         <input type="text" id="firstname" name="firstname" placeholder="First name" required />

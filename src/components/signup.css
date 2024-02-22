@@ -7,6 +7,12 @@ body {
     padding: 50px;
     text-align: center;
   }
+
+  .signup-container h3{ 
+    color: navy;
+    font-family: ;
+
+  }
   
   .signup-form {
     display: flex;
