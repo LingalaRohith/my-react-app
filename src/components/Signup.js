@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import './signup.css';
 
 const Signup = () => {
     const navigate = useNavigate();
+    const [showPaymentFields, setShowPaymentFields] = useState(false);
+    const [showAddressFields, setShowAddressFields] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -34,8 +36,37 @@ const Signup = () => {
                         <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required/>
                     </div>
                     <div className="optional-actions">
-                        <button type="button" className="optional-button">Add payment info</button>
-                        <button type="button" className="optional-button">Add address</button>
+                        <button type="button" className="optional-button" onClick={() => setShowPaymentFields(!showPaymentFields)}>
+                            Add payment info
+                        </button>
+                        {showPaymentFields && (
+                            <div className="input-group">
+                                <input type="text" id="firstName" name="firstName" placeholder="Name As it Appears on Card" />
+                                <input type="text" id="billingAddress" name="addressLine1" placeholder="Address Line 1" />
+                                <input type="text" id= "billingAddress2" name="addressLine2" placeholder="Address Line 2" />
+                                <input type="text" id="city" name="city" placeholder="City" />
+                                <input type="text" id="state" name="state" placeholder="State" />
+                                <input type="text" id="zipCode" name="zipCode" placeholder="Zip Code" />
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" />
+                                <input type="text" id="expiryDate" name="expiryDate" placeholder="Expiry Date" />
+                                <input type="text" id="expiryDate" name="expiryDate" placeholder="CVV" />
+
+                            </div>
+                        )}
+                        <button type="button" className="optional-button" onClick={() => setShowAddressFields(!showAddressFields)}>
+                            Add address
+                        </button>
+                        {showAddressFields && (
+                            <div className="input-group">
+                                {/* Replace these with your actual address fields */}
+                                <input type="text" id="addressLine1" name="addressLine1" placeholder="Address Line 1" />
+                                <input type="text" id="addressLine2" name="addressLine2" placeholder="Address Line 2" />
+                                <input type="text" id="city" name="city" placeholder="City" />
+                                <input type="text" id="state" name="state" placeholder="State" />
+                                <input type="text" id="zipCode" name="zipCode" placeholder="Zip Code" />
+                                {/* Add any additional address fields here */}
+                            </div>
+                        )}
                     </div>
                     <input type="submit" value="Create Account" className="submit-button"/>
                 </form>

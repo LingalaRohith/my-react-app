@@ -10,7 +10,7 @@ body {
 
   .signup-container h3{ 
     color: navy;
-    font-family: ;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
 
   }
   
@@ -54,7 +54,7 @@ body {
 
   .submit-button {
     font-size: 20px;
-    background-color: #7F69CE;
+    background-color: green;
     padding: 15px 15px;
     margin: 10x;
     color: white;
