@@ -49,7 +49,6 @@ const currentlyRunningMovies = [
   ];
 
 function LandingPage() {
-  
   const [searchQuery, setSearchQuery] = useState('');
   const [searchBy, setSearchBy] = useState('');
   const [filteredCurrentlyRunningMovies, setFilteredCurrentlyRunningMovies] = useState(currentlyRunningMovies);
@@ -57,9 +56,6 @@ function LandingPage() {
   const [selectedMovie, setSelectedMovie] = useState(null); 
   const [selectedMovieIndex, setSelectedMovieIndex] = useState(null); 
   const [selectedMovieListType, setSelectedMovieListType] = useState('');
-
-  
-
 
   const handleSearch = () => {
     if (!searchBy || !searchQuery) {
