@@ -42,9 +42,23 @@ function MovieInformationPage() {
 
   
   const handleNavigation = () => {
-      navigate('/bookseats', { state: { movie } });
-    
+    const selectedDate = showShowDates === 'dayOne' ? movie.dayOne : movie.dayTwo;
+    const selectedTime = showShowTimes.startsWith('dayOneTime') ? movie[showShowTimes] : movie[showShowTimes];
+
+    navigate('/bookseats', {
+      state: {
+        movie,
+        ticketQuantities: {
+          adults: adults,
+          children: children,
+          seniors: seniors
+        }, 
+        showShowDates: selectedDate, // Pass the actual selected date here
+        showShowTimes: selectedTime
+      }
+    });
   };
+
   const location = useLocation();
   const { movie } = location.state || {};
 

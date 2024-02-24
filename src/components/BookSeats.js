@@ -9,8 +9,10 @@ function BookSeats() {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [takenSeats, setTakenSeats] = useState([]);
   const location = useLocation();
-  const { movie } = location.state || {}; 
+  const { movie, ticketQuantities, showShowDates, showShowTimes } = location.state || {};
+  const totalTickets = ticketQuantities.adults + ticketQuantities.children + ticketQuantities.seniors;
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
@@ -24,22 +26,34 @@ function BookSeats() {
   }, []); 
 
   const navigateToOrderSummary = () => {
-    if (selectedSeats.length === 0) {
+    if (selectedSeats.length === 0 || selectedSeats.length > totalTickets) {
       alert('Please select the correct number of seats before continuing.');
       return;
     }
-    navigate('/ordersummary');
+    navigate('/ordersummary', { 
+      state: { 
+        movie, 
+        selectedSeats, 
+        ticketQuantities, 
+        showShowDates,
+        showShowTimes,
+      } 
+    });
   };
 
   const handleSeatClick = (seatId) => {
     if (!takenSeats.includes(seatId)) {
-      setSelectedSeats((prevSelectedSeats) => {
-        if (prevSelectedSeats.includes(seatId)) {
-          return prevSelectedSeats.filter((id) => id !== seatId);
-        } else {
-          return [...prevSelectedSeats, seatId];
-        }
-      });
+      if (selectedSeats.length < totalTickets || selectedSeats.includes(seatId)) {
+        setSelectedSeats((prevSelectedSeats) => {
+          if (prevSelectedSeats.includes(seatId)) {
+            return prevSelectedSeats.filter((id) => id !== seatId);
+          } else {
+            return [...prevSelectedSeats, seatId];
+          }
+        });
+      } else {
+        alert('You cannot select more seats than the total number of tickets.');
+      }
     }
   };
 
@@ -77,6 +91,8 @@ function BookSeats() {
               <img src={movie.img} alt={`Poster for ${movie.title}`} className="movie-poster" />
               <hr className="divider" />
               <h2 className="movie-title">{movie.title}</h2>
+              <p className="show-dates"> {showShowDates}</p>
+              <p className="show-times"> {location.state.showShowTimes}</p>
             </div>
             <header className="booking-header">
               <h1>Select Your Seats</h1>

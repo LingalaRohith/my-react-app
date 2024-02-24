@@ -58,7 +58,9 @@
     text-align: center;
     margin: 20px 0;
   }
-  
+  .show-dates{ 
+    font-size:1em;
+  }
   .seat-key {
     display: flex;
     justify-content: center;
