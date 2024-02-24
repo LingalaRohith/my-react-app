@@ -57,7 +57,7 @@
     max-width: 150px;
     max-height: 400px;
     font-family: 'Courier New', Courier, monospace; 
-
+    box-shadow: 0 0 10px 2px #011d02;
 }
 
 .card-chip {

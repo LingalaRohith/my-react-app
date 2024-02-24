@@ -23,6 +23,14 @@ function BookSeats() {
     setTakenSeats(newTakenSeats);
   }, []); 
 
+  const navigateToOrderSummary = () => {
+    if (selectedSeats.length === 0) {
+      alert('Please select the correct number of seats before continuing.');
+      return;
+    }
+    navigate('/ordersummary');
+  };
+
   const handleSeatClick = (seatId) => {
     if (!takenSeats.includes(seatId)) {
       setSelectedSeats((prevSelectedSeats) => {
@@ -80,7 +88,10 @@ function BookSeats() {
               <div className="key-item"><div className="circle taken"></div><span>Taken</span></div>
             </div>
             {selectedSeats.length > 0 && <p>Selected: {selectedSeats.join(', ')}</p>}
-            <button className="next-button" onClick={() => navigate('/ordersummary')}>Next</button></>
+            <button className="next-button" 
+            onClick={navigateToOrderSummary} 
+            //   disabled={selectedSeats.length === 0} 
+            > Next</button></>
         )}
       </div>
     </div>
