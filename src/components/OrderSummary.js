@@ -13,6 +13,8 @@ function OrderSummary() {
   const [state, setState] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [country, setCountry] = useState('');
+  const [useSavedCard, setUseSavedCard] = useState(false); // Starts as false indicating new card details are shown by default
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,6 +25,10 @@ function OrderSummary() {
       cardNumber: '●●●● ●●●● ●●●● 5058',
       cardHolder: 'furwah t'
   
+  };
+  // Function to handle clicking the saved card
+  const toggleUseSavedCard = () => {
+    setUseSavedCard(!useSavedCard);
   };
 
   return (
@@ -44,7 +50,7 @@ function OrderSummary() {
             />
 
             <h2>Payment</h2>
-            <div className="saved-card-display">
+            <div className={`saved-card-display ${useSavedCard ? 'active' : ''}`} onClick={toggleUseSavedCard}>
             <div className="card-chip"></div>
             <div className="card-logo">{savedCard.cardType}</div>
             <div className="card-number">{savedCard.cardNumber}</div>
@@ -52,6 +58,10 @@ function OrderSummary() {
     <span className="card-holder-label"></span> {savedCard.cardHolder}
   </div>
 </div>
+            {/* Show input fields if saved card is not being used */}
+            {!useSavedCard && (
+              <>
+
             <label htmlFor="cardName">Name on Card</label>
             <input
               type="text"
@@ -95,7 +105,8 @@ function OrderSummary() {
               onChange={(e) => setExpDate(e.target.value)}
               required
             />
-
+ </>
+            )}
             <h2>Billing Information</h2>
             <label htmlFor="billingAddress">Billing Address</label>
             <input

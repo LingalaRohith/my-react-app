@@ -46,6 +46,7 @@
   cursor: pointer;
 }
 .saved-card-display {
+    cursor: pointer;
     background: linear-gradient(to right, #ff1e56, #ffac41);
     color: white;
     padding: 50px; 
