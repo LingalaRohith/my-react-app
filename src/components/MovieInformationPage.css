@@ -159,3 +159,22 @@ button:hover {
   .increment {
     margin-right: 50px;
   }
+
+.movie-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .movie-info h2 {
+    color: #000; /* Change this to ensure visibility against your page's background */
+    margin: 10px 0;
+  }
+  
+  .movie-info img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+

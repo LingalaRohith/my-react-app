@@ -1,0 +1,108 @@
+.order-summary-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.review-order-section {
+  flex: 1; 
+  margin-right: 20px; 
+}
+
+.review-order-section h1,
+.review-order-section h2 {
+  margin-bottom: 10px;
+}
+
+.review-order-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-order-section label {
+  margin-bottom: 5px;
+}
+
+.review-order-section input {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-order-btn {
+  padding: 10px 20px;
+  background-color: #000; 
+  color: #fff; 
+  border: none;
+  cursor: pointer;
+}
+.saved-card-display {
+    background: linear-gradient(to right, #ff1e56, #ffac41);
+    color: white;
+    padding: 50px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 150px;
+    max-height: 400px;
+    font-family: 'Courier New', Courier, monospace; 
+
+}
+
+.card-chip {
+  background-color: #666; /* Chip color */
+  border-radius: 4px; /* Rounded corners for the chip */
+  height: 30px; /* Chip height */
+  width: 40px; /* Chip width */
+  position: absolute;
+  top: 20px; /* Position from the top */
+  left: 20px; /* Position from the left */
+  overflow: hidden; /* Ensures nothing spills out of the chip's bounds */
+}
+
+.card-chip::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    #777 2px,
+    #777 3px
+  );
+}
+.card-logo {
+  font-size: 1.2em;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.card-number {
+  letter-spacing: 0px; 
+  font-size: 12px; 
+  margin-top: 30px; 
+  font-family: 'Lucida Console', Monaco, monospace;
+}
+
+.card-holder-name {
+  font-family: 'Arial', sans-serif;
+  font-size: 1em;
+  position: absolute;
+  bottom: 20px;
+  left: 45px;
+}
+
+
+.card-details p {
+  margin: 5px 0;
+}
+.card-holder-label {
+  font-size: 0.8em;
+  color: #ccc; 
+  margin-right: 5px;
+}

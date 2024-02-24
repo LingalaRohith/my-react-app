@@ -1,11 +1,13 @@
 import React from 'react';
 import './Seat.css';
 
-const Seat = ({ selected, onClick }) => {
+const Seat = ({ id, selected, taken, onClick }) => {
+  const className = `seat ${taken ? 'taken' : selected ? 'selected' : 'available'}`;
   return (
     <div
-      className={`seat ${selected ? 'selected' : ''}`}
-      onClick={onClick}
+      className={className}
+      onClick={() => !taken && onClick()}
+      aria-label={`Seat ${id}`}
     ></div>
   );
 };

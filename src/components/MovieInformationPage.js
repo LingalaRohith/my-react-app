@@ -42,7 +42,8 @@ function MovieInformationPage() {
 
   
   const handleNavigation = () => {
-    navigate('/bookseats');
+      navigate('/bookseats', { state: { movie } });
+    
   };
   const location = useLocation();
   const { movie } = location.state || {};
