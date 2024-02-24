@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import './OrderSummary.css'; 
-
 function OrderSummary() {
   // State hooks for managing form inputs
   const [email, setEmail] = useState('');
