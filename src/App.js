@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from "./components/LandingPage";
 import Signup from "./components/Signup";
@@ -17,28 +17,28 @@ import OrderSummary from "./components/OrderSummary";
 import OrderConfirmation from "./components/OrderConfirmation"; 
 
 function App() {
-    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [isLoggedIn, setLoggedIn] = useState(true);
 
     return (
     <div>
         <Router>
                 <Routes>
                     <Route path="/registration-confirmation" element={<RegistrationConfirmation />} />
-                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
                     <Route path="signup" element={<Signup />} />
                     <Route path="login" element={<Login />} />
                     <Route path="moviespage" element={<MoviesPage />} />
                     <Route path="verification" element={<Verification />} />
                     <Route path="editprofile" element={<EditProfile isLoggedIn={true} />} />
                     <Route path="admin" element={<AdminMain isLoggedIn={true} />} />
-                    <Route path="movie-info" element={<MovieInformationPage />}/>
-                    <Route path="/" component={<LandingPage />} />
-                    <Route path="admin/manage-users" element={<ManageUsers />} />
-                    <Route path="admin/manage-movies" element={<ManageMovies />} />
-                    <Route path="admin/manage-promotions" element={<ManagePromotions />} />
-                    <Route path="bookseats" element={<BookSeats />} />
-                    <Route path="ordersummary" element={<OrderSummary />} />
-                    <Route path="/order-confirmation" element={<OrderConfirmation />} />
+                    <Route path="movie-info" element={<MovieInformationPage isLoggedIn={true}/>}/>
+                    <Route path="/" component={<LandingPage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+                    <Route path="admin/manage-users" element={<ManageUsers isLoggedIn={true}/>} />
+                    <Route path="admin/manage-movies" element={<ManageMovies isLoggedIn={true}/>} />
+                    <Route path="admin/manage-promotions" element={<ManagePromotions isLoggedIn={true}/>} />
+                    <Route path="bookseats" element={<BookSeats isLoggedIn={true}/>} />
+                    <Route path="ordersummary" element={<OrderSummary isLoggedIn={true}/>} />
+                    <Route path="/order-confirmation" element={<OrderConfirmation isLoggedIn={true}/>} />
                 </Routes>
         </Router>
     </div>

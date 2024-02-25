@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import './ManageUsers.css';
 
-function ManageUsers() {
+function ManageUsers({isLoggedIn}) {
     const initialUsers = [
         { id: 1, name: 'John Cena', email: 'johnc12@yahoo.com' },
         { id: 2, name: 'Jane Johnson', email: 'janejohnson@hotmail.com' },
@@ -34,7 +34,7 @@ function ManageUsers() {
 
     return (
         <div>
-            <Header />
+            <Header isLoggedIn={isLoggedIn}/>
             <div className="manage-users">
                 <h5>Manage Users</h5>
                 <div className="add-user-form">

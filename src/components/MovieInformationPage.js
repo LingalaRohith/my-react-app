@@ -4,7 +4,7 @@ import Header from './Header';
 import './MovieInformationPage.css';
 import { useNavigate } from 'react-router-dom';
 
-function MovieInformationPage() {
+function MovieInformationPage({isLoggedIn}) {
   const navigate = useNavigate();
   const [showShowDates, setShowShowDates] = useState('');
   const [showShowTimes, setShowShowTimes] = useState('');
@@ -65,7 +65,7 @@ function MovieInformationPage() {
 
   return (
     <div className="App">
-      <Header />
+      <Header isLoggedIn={isLoggedIn}/>
       <div className="modal-content">
         <div className="video-and-synopsis">
           <div className="video">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../resources/logo.png';
 import { Link } from 'react-router-dom';
 import './header.css';
@@ -6,14 +6,13 @@ import './header.css';
 const Hdr = ({ isLoggedIn, setLoggedIn }) => {
 
   const handleLogout = () => {
-    localStorage.setItem('auth-token', '');
     setLoggedIn(false);
   };
 
   return (
     <div className='header'>
       <Link to="/">
-        <img src={logo} className="logo" alt="logo" /> {/* Updated line */}
+        <img src={logo} className="logo" alt="logo" /> 
       </Link>
       <h1>Cinema Hub</h1>
       <div className="buttons">
