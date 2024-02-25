@@ -123,9 +123,11 @@ function MovieInformationPage() {
               <button onClick={() => decrement('seniors')}>-</button>
               <span>{seniors}</span>
               <button onClick={() => increment('seniors')}>+</button>
+              {showShowDates !== '' && showShowTimes !== '' && (
               <div className="dates-times-tickets">
               <button onClick={handleNavigation}>Book Seats</button>
             </div>
+              )};
             </div>
           </div>
             
@@ -138,6 +140,7 @@ function MovieInformationPage() {
             <h2>{movie?.title}</h2>
             <p>Director: {movie?.director}, Cast: {movie?.cast}, Producer/s: {movie?.producer}</p>
             <p>{movie?.genre} ({movie?.rating})</p>
+            <p>Rotten Tomatoes Rating: {movie?.review}</p>
           </div>
           
           
