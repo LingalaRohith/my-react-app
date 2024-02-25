@@ -1,25 +1,118 @@
-
-
-.review-order-section h2 {
-  color: black; 
-  margin-left: 0px; 
+body, html {
+  padding: 0; 
+  height: 100%; 
 }
-
 
 .order-summary-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: flex-start; 
+  padding: 20px; 
+  padding-top: 100px; 
+  height: calc(100vh - 100px); 
+  box-sizing: border-box; 
 }
 
-.review-order-section {
+.order-summary-card {
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  padding: 15px;
+  width: 500px; 
+  position: fixed; 
+  right: 50px; 
+  top: 100px;
+}
+
+.order-summary-card h2 {
+  color: navy; 
+  font-size: 1.5em; 
+  border-bottom: 1px solid #ccc; 
+  padding-bottom: 10px; 
+}
+
+.order-summary-item {
+  padding-bottom: 5px; 
+  margin-bottom: 10px; 
+}
+
+.order-summary-item p {
+  margin: 0; 
+}
+
+.order-summary-item p + p {
+  align-items: flex-end; 
+  font-size: 0.99em; 
+}
+.ticket-type-row {
+  border-top: 1px solid #ccc; /* Line above the total */
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; 
+  margin-bottom: 10px;
+}
+
+.ticket-type {
+  flex-basis: 50%; 
+  
+}
+
+.ticket-info {
+  flex-basis: 50%; 
+  display: flex;
+  justify-content: space-between; 
+  
+}
+.align-right {
+  text-align: right;
+  display: block; 
+  margin-bottom: -10px;
+}
+
+.ticket-quantity {
+  font-size: 0.9em; 
+  text-align: right; 
+}
+
+.ticket-price {
+  font-weight: bold; 
+  text-align: right;
+}
+
+.total-price {
+  font-weight: bold;
+  font-size: 1.em; /* Size of the total price */
+  border-top: 1px solid #ccc; /* Line above the total */
+  padding-top: 10px; 
+  margin-top: 10px; 
+  align-items: flex-end; 
+
+}
+
+.promo-code-section {
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 20px; 
+}
+
+.promo-code-section button {
+  background-color: green; 
+  border-radius: 0px; 
+
+}
+
+
+.review-order-section  {
   flex: 1; 
   margin-right: 20px; 
 }
-
-.review-order-section h1,
-.review-order-section h2 {
-  margin-bottom: 10px;
+.review-order-section h1 {
+  margin-top: -60px; 
+}
+.review-order-section h2  {
+  color: black; 
+  flex: 1; 
+  margin-left:0px; 
+  margin-bottom: 20px; 
 }
 
 .review-order-section form {
@@ -57,7 +150,7 @@
     max-width: 150px;
     max-height: 400px;
     font-family: 'Courier New', Courier, monospace; 
-
+    box-shadow: 0 0 10px 2px #011d02;
 }
 
 .card-chip {
@@ -66,9 +159,9 @@
   height: 30px; /* Chip height */
   width: 40px; /* Chip width */
   position: absolute;
-  top: 20px; /* Position from the top */
-  left: 20px; /* Position from the left */
-  overflow: hidden; /* Ensures nothing spills out of the chip's bounds */
+  top: 20px; 
+  left: 20px;
+  overflow: hidden; 
 }
 
 .card-chip::after {
@@ -115,3 +208,7 @@
   color: #ccc; 
   margin-right: 5px;
 }
+
+
+
+
