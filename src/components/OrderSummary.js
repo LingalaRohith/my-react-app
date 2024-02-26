@@ -31,8 +31,17 @@
     const handleSubmit = (event) => {
       event.preventDefault(); 
       // Navigate to OrderConfirmation page
-      navigate('/order-confirmation'); 
+      navigate('/order-confirmation', {
+        state: {
+          movie: movie,
+          selectedSeats: selectedSeats,
+          showShowDates: showShowDates,
+          showShowTimes: showShowTimes,
+          total: total
+        }
+      });
     };
+    
     const savedCard = {
         cardNumber: '●●●● ●●●● ●●●● 5058',
         cardHolder: 'furwah t'
