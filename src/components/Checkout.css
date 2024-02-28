@@ -131,12 +131,41 @@ body, html {
   border-radius: 4px;
 }
 
-.submit-order-btn {
-  padding: 10px 20px;
-  background-color: #000; 
-  color: #fff; 
+.button-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.order-button {
+  width: 400px; 
+  padding: 10px 0; 
+  text-align: center;
+  color: #fff;
   border: none;
   cursor: pointer;
+  margin-bottom: 10px; 
+  transition: background-color 0.3s;
+}
+
+.cancel-order-btn {
+  background-color: #e63d3d; 
+}
+
+.submit-order-btn {
+  background-color: #055e0e;
+}
+
+.order-button:hover {
+  background-color: inherit;
+}
+
+.cancel-order-btn:hover {
+  background-color: #ff6c6c;
+}
+
+.submit-order-btn:hover {
+  background-color: #3f8945;
 }
 .saved-card-display {
     cursor: pointer;
