@@ -115,6 +115,42 @@ function ManageMovies() {
                                                 value={newMovieImg}
                                                 onChange={(e) => setNewMovieImg(e.target.value)}
                                             />
+                                            <input
+                                                type="text"
+                                                placeholder="New Cast"
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="New Director"
+                                            />
+                                            <input
+                                            type="text"
+                                            placeholder="New Category"
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="New Producer"
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="New Synopsis"
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="New Reviews"
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="New Review"
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="New Trailer"
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="New Film Rating"
+                                            />
                                             <button
                                                 onClick={() => saveEditedMovie(movie.id)}
                                                 className="btn btn-delete"

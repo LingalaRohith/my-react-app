@@ -1,180 +1,179 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-    background-color: #081752;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #081752;
 }
 
 .App {
-    background-color: #081752;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  background-color: #081752;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 
 h2 {
-    font-weight: 700;
-    font-size: 1.5em;
-    color: rgb(255, 253, 253);
-    margin-bottom: 10px;
-    margin:auto;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: rgb(255, 253, 253);
+  margin-bottom: 10px;
+  margin:auto;
 }
 
 
 select,
 input,
 button {
-    padding: 8px;
-    margin-right: 10px;
-    font-size: 16px;
-    border-radius: 20px; 
-    border: 1px solid #ccc; 
+  padding: 8px;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 20px; 
+  border: 1px solid #ccc; 
 
 }
 
 button {
-    font-size: 16px;
-    background-color: #4a90e2; 
-    color: white;
-    border: 2px solid #4a90e2; 
-    cursor: pointer; 
-    padding: 10px 20px; 
-    transition: all 0.3s; 
+  font-size: 16px;
+  background-color: #4a90e2; 
+  color: white;
+  border: 2px solid #4a90e2; 
+  cursor: pointer; 
+  padding: 10px 20px; 
+  transition: all 0.3s; 
 }
 
 button:hover {
-    background-color: #367cd5; 
-    border-color: #367cd5;
+  background-color: #367cd5; 
+  border-color: #367cd5;
 }
 
 
 .bttns {
-    display: flex;
-    flex-direction: column; /* Stack the buttons vertically */
-    justify-content: center; /* Center the buttons vertically within their container */
-    padding-left: 10px; /* Adjust this value to control the space directly next to the iframe */
+  display: flex;
+  flex-direction: column; /* Stack the buttons vertically */
+  justify-content: center; /* Center the buttons vertically within their container */
+  padding-left: 10px; /* Adjust this value to control the space directly next to the iframe */
 }
 
 .App iframe {
-    /* Your existing styles */
-    margin: 0; /* Ensure there's no default margin adding unwanted space */
+  /* Your existing styles */
+  margin: 0; /* Ensure there's no default margin adding unwanted space */
 }
 
 
 .App p {
-    font-weight: 700;
-    font-size: 1rem;
-    color: black;
-    margin-bottom: 10px;
-    margin: auto
+  font-weight: 700;
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 10px;
+  margin: auto
 }
 
 .dates-showtimes {
-    display: flex;
-    align-items: center; /* This vertically centers the iframe and buttons */
-    gap: 10px; /* Adjust this value to control the space between the iframe and the buttons */
-    margin: auto;
+  display: flex;
+  align-items: center; /* This vertically centers the iframe and buttons */
+  gap: 10px; /* Adjust this value to control the space between the iframe and the buttons */
+  margin: auto;
 }
 
 
 .counter-item p {
-  margin-right: 10px; /* Adjust the margin as needed */
+margin-right: 10px; /* Adjust the margin as needed */
 }
 
 
 
 .modal-content {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  
- .video-and-synopsis {
-    display: flex;
-    margin: auto;
- }
-  
-  .video {
-    margin-left: 10px;
-    width: 40%;
-    
-  }
-  
-  .synopsis {
-    width: 70%;
-    margin-bottom: 10px;
-  }
-  
-  .details {
-    display: flex;
-    flex-basis: 100%;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .counters {
-    width: 30%;
-    margin-top: 20px;
-  }
-  
-  .counter-item {
-    display: flex;
-    align-items: left;
-    margin-bottom: 10px;
-    margin-left: 2px;
-  }
-  
-  .counter-item button {
-    margin: 0 5px;
-  }
-  
-  .movie-details {
-    margin-left: 10px;
-    width: 50%;
-  }
-  
-  .dates-times-tickets {
-    margin-top: 20px;
-    width: 20%;
-    margin-left: auto;
-  }
-  
-  .bttns button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .bttns button:hover {
-    background-color: #0056b3;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .increment {
-    margin-right: 50px;
-  }
+
+.video-and-synopsis {
+  display: flex;
+  margin: auto;
+}
+
+.video {
+  margin-left: 10px;
+  width: 40%;
+  
+}
+
+.synopsis {
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.details {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.counters {
+  width: 30%;
+  margin-top: 20px;
+}
+
+.counter-item {
+  display: flex;
+  align-items: left;
+  margin-bottom: 10px;
+  margin-left: 2px;
+}
+
+.counter-item button {
+  margin: 0 5px;
+}
+
+.movie-details {
+  margin-left: 10px;
+  width: 50%;
+}
+
+.dates-times-tickets {
+  margin-top: 20px;
+  width: 20%;
+  margin-left: auto;
+}
+
+.bttns button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.bttns button:hover {
+  background-color: #0056b3;
+}
+
+.increment {
+  margin-right: 50px;
+}
 
 .movie-info {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .movie-info h2 {
-    color: #000; /* Change this to ensure visibility against your page's background */
-    margin: 10px 0;
-  }
-  
-  .movie-info img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.movie-info h2 {
+  color: #000; /* Change this to ensure visibility against your page's background */
+  margin: 10px 0;
+}
+
+.movie-info img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 

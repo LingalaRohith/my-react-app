@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import './landingpage.css';
 import { useNavigate } from 'react-router-dom';
-
+import './RegistrationConfirmation.js';
 
 const MovieModal = ({ movie, onClose }) => {
   const navigate = useNavigate();
@@ -13,7 +13,6 @@ const MovieModal = ({ movie, onClose }) => {
   };
 
   if (!movie) return null; 
-
 
 
   return (
