@@ -2,24 +2,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 120px;
+    padding-top: 50px;
 }
 
-input {
-    max-width: 400px;
+.verify input {
+    min-width: 400px;
+    border: 1px solid gray;
 }
 
 .verify h1 {
     font-size: 50px;
-    padding-bottom: 0;
-    margin: 10px;
     border-bottom: 3px solid #7F69CE;
-    
+}
+
+.verify p {
+    padding-bottom: 20px;
 }
 
 .verify button {
     background-color: #7F69CE;
     border-radius: 5px;
-    margin-top: 10px;
-    margin-left: 75px;
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

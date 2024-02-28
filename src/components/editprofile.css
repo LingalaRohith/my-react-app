@@ -12,7 +12,7 @@
 .edit-profile-form input[type="tel"],
 .edit-profile-form input[type="password"],
 .edit-profile-form input[type="number"] { 
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 20px;

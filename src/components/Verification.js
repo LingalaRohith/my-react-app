@@ -10,10 +10,9 @@ function Verification() {
             <div className="verify">
             <h1>Thank you!</h1>
             <p>Please enter the verification code sent to your email.</p>
-            <form>
+            <form class="center">
                 <input type="text" placeholder="Verification Code" required/>
-                <p>You will be redirected to the login page</p>
-                <Link to="/login">
+                <Link to="/registration-confirmation">
                     <button type="submit">Submit</button>
                 </Link>
             </form>

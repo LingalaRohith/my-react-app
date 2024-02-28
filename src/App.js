@@ -16,6 +16,7 @@ import BookSeats from "./components/BookSeats";
 import OrderSummary from "./components/OrderSummary";
 import OrderConfirmation from "./components/OrderConfirmation"; 
 import Checkout from "./components/Checkout"; 
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
     const [isLoggedIn, setLoggedIn] = useState(true);
@@ -41,6 +42,7 @@ function App() {
                     <Route path="ordersummary" element={<OrderSummary isLoggedIn={true}/>} />
                     <Route path="/order-confirmation" element={<OrderConfirmation isLoggedIn={true}/>} />
                     <Route path="/checkout" element={<Checkout isLoggedIn={true}/>} />
+                    <Route path="/profilepage" element={<ProfilePage isLoggedIn={true}/>} />
                 </Routes>
         </Router>
     </div>
