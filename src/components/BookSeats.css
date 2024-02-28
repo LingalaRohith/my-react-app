@@ -1,3 +1,7 @@
+html, body { 
+  background-color: white !important;
+}
+
 .book-seats {
     display: flex;
     flex-direction: column;
@@ -34,16 +38,18 @@
   }
   
   .movie-info img {
-    max-width: 150px; 
+    max-width: 250px; 
     height: auto; 
     display: block;
     margin: 0 auto; 
   }
+
   .movie-poster {
     max-width: 200px;
     height: auto;
     display: block;
     margin: 0 auto;
+    margin-bottom: 0px; 
   }
   
   .divider {
@@ -57,10 +63,21 @@
   .movie-title {
     text-align: center;
     margin: 20px 0;
+    color: black; 
   }
   .show-dates{ 
-    font-size:1em;
+    margin-top:20px; 
+    font-size:1.2em;
+    text-align: center; 
   }
+
+
+  .show-times{ 
+    margin-bottom: 20px;
+    font-size:1.5em; 
+    text-align: center; 
+  } 
+
   .seat-key {
     display: flex;
     justify-content: center;
