@@ -6,7 +6,7 @@ import './OrderConfirmation.css';
 function  OrderConfirmation({isLoggedIn}) {
 
   const location = useLocation();
-  const { movie, selectedSeats, showShowDates, showShowTimes, total } = location.state;
+  const { movie, localSelectedSeats, showShowDates, showShowTimes, total } = location.state;
 
   // Generate a random booking confirmation number
   const generateConfirmationNumber = () => {
@@ -43,7 +43,7 @@ function  OrderConfirmation({isLoggedIn}) {
           <strong>{movie.title}</strong> {showShowDates} at {showShowTimes}
         </div>
         <div className="confirmation-item">
-          <strong>Seats:</strong> {selectedSeats.join(', ')}
+          <strong>Seats:</strong> {localSelectedSeats.join(', ')}
         </div>
         <div className="total-price">
           <strong>Order Total:</strong> ${total.toFixed(2)}
