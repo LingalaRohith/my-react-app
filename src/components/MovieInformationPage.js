@@ -67,6 +67,7 @@ function MovieInformationPage({isLoggedIn}) {
     <div className="App">
       <Header isLoggedIn={isLoggedIn}/>
       <div className="modal-content">
+      <h2>{movie?.title}</h2>
         <div className="video-and-synopsis">
           <div className="video">
             <iframe
@@ -139,25 +140,23 @@ function MovieInformationPage({isLoggedIn}) {
               <button onClick={() => increment('seniors')}>+</button>
               {showShowDates !== '' && showShowTimes !== '' && (
               <div className="dates-times-tickets">
-              <button onClick={handleNavigation}>Book Seats</button>
-            </div>
-              )};
+                <button onClick={handleNavigation}>Book Seats</button>
+              </div>
+              )}
             </div>
           </div>
             
           </div>
         </div>
-        
-  
         <div className="details">
         <div className="movie-details">
-            <h2>{movie?.title}</h2>
-            <p>Director: {movie?.director}, Cast: {movie?.cast}, Producer/s: {movie?.producer}</p>
-            <p>{movie?.genre} ({movie?.rating})</p>
+            <p>Director: {movie?.director}</p> 
+            <p>Cast: {movie?.cast}</p> 
+            <p>Producer/s: {movie?.producer}</p>
+            <p>Genre: {movie?.genre}</p> 
+            <p>Rating: ({movie?.rating})</p>
             <p>Rotten Tomatoes Rating: {movie?.review}</p>
           </div>
-          
-          
         </div>
       </div>
     </div>
