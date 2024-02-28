@@ -4,7 +4,7 @@ import './landingpage.css';
 import { useNavigate } from 'react-router-dom';
 
 
-const MovieModal = ({ movie, onClose }) => {
+const MovieModal = ({ movie, onClose, isLoggedIn }) => {
   const navigate = useNavigate();
   
   const handleNavigation = () => {
@@ -29,7 +29,7 @@ const MovieModal = ({ movie, onClose }) => {
         </iframe>
         <div class="bttns">
             <button onClick={onClose}>Close</button>
-            <button onClick={handleNavigation}>More Info</button>
+            {isLoggedIn && <button onClick={handleNavigation}>More Info</button>}
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@ function LandingPage({isLoggedIn, setLoggedIn}) {
           <p className="movie-title">{movie.title}</p>
         </div>
         {selectedMovie && selectedMovieIndex === index && selectedMovieListType === listType && (
-          <MovieModal movie={selectedMovie} onClose={closeModal} />
+          <MovieModal movie={selectedMovie} onClose={closeModal} isLoggedIn={isLoggedIn}/>
         )}
       </>
     ));

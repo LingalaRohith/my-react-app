@@ -9,7 +9,6 @@ function BookSeats({ isLoggedIn }) {
   const [takenSeats, setTakenSeats] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
-
   const { movie, ticketQuantities, showShowDates, showShowTimes, existingSelections } = location.state || {};
   // Calculate the total tickets needed from the ticketQuantities passed in state
   const totalTicketsRequired = ticketQuantities ? Object.values(ticketQuantities).reduce((acc, value) => acc + value, 0) : 0;
