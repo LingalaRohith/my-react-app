@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import './ManagePromotions.css';
 
-function ManagePromotions() {
+function ManagePromotions({isLoggedIn}) {
     const [promotions, setPromotions] = useState([
         // some dummy data
         { id: 1, name: 'Early Bird', description: 'Get 20% off for early bookings', code: 'EARLY20', amount: 0.80 },
@@ -30,7 +30,7 @@ function ManagePromotions() {
 
     return (
         <div>
-            <Header />
+            <Header isLoggedIn={isLoggedIn}/>
             <div className="manage-promotions"> 
             <h5>Manage Promotions</h5>
             <div className="promotion-list">

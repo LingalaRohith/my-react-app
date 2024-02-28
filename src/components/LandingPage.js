@@ -6,7 +6,6 @@ import './RegistrationConfirmation.js';
 
 const MovieModal = ({ movie, onClose }) => {
   const navigate = useNavigate();
-
   
   const handleNavigation = () => {
     navigate('/movie-info', { state: { movie: movie } });
@@ -47,7 +46,7 @@ const currentlyRunningMovies = [
     { title: 'Kung Fu Panda 4', review: 'N/A', dayOne: 'FRI: MAR 8', dayTwo: 'SAT: MAR 9', dayOneTime1: '10:00AM', dayTwoTime1: '1:00PM', dayTwoTime2: '5:30PM', director: 'Mike Mitchell', cast: 'Jack Black, Awkafina, Viola Davis, Dustin Hoffman, James Jong, Bryan Cranston, Ian McShane, Ke Huy Quan', producer: 'Rebecca Huntley', rating: 'PG', genre: 'Comedy/Adventure', synopsis: 'Po must train a new warrior when he is chosen to become the spiritual leader of the Valley of Peace. However, when a powerful shape-shifting sorceress sets her eyes on his Staff of Wisdom, he suddenly realizes he is going to need some help. Teaming up with a quick-witted corsac fox, Po soon discovers that heroes can be found in the most unexpected places', date: '2024-03-08', img: 'https://shorturl.at/fyP09', trailer: 'https://www.youtube.com/watch?v=_inKs4eeHiI'},
   ];
 
-function LandingPage() {
+function LandingPage({isLoggedIn, setLoggedIn}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchBy, setSearchBy] = useState('');
   const [filteredCurrentlyRunningMovies, setFilteredCurrentlyRunningMovies] = useState(currentlyRunningMovies);
@@ -55,6 +54,7 @@ function LandingPage() {
   const [selectedMovie, setSelectedMovie] = useState(null); 
   const [selectedMovieIndex, setSelectedMovieIndex] = useState(null); 
   const [selectedMovieListType, setSelectedMovieListType] = useState('');
+
 
   const handleSearch = () => {
     if (!searchBy || !searchQuery) {
@@ -105,7 +105,7 @@ function LandingPage() {
 
   return (
     <div className="App">
-      <Header />
+      <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/>
       <div className="movies-and-search-container">
       <div className="search-container">
           <select value={searchBy} onChange={(e) => setSearchBy(e.target.value)}>

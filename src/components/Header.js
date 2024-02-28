@@ -6,14 +6,13 @@ import './header.css';
 const Hdr = ({ isLoggedIn, setLoggedIn }) => {
 
   const handleLogout = () => {
-    localStorage.setItem('auth-token', '');
     setLoggedIn(false);
   };
 
   return (
     <div className='header'>
       <Link to="/">
-        <img src={logo} className="logo" alt="logo" /> {/* Updated line */}
+        <img src={logo} className="logo" alt="logo" /> 
       </Link>
       <h1>Cinema Hub</h1>
       <div className="buttons">
@@ -23,7 +22,7 @@ const Hdr = ({ isLoggedIn, setLoggedIn }) => {
               <button>Home</button>
             </Link>
             <Link to="/MoviesPage">
-              <button>Movies</button>
+              <button> Book Movies</button>
             </Link>
             <Link to="/">
               <button onClick={handleLogout}>Logout</button>

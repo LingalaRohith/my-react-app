@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Seat from './Seat';
 import Header from './Header';
 import './BookSeats.css';
 
-function BookSeats() {
+function BookSeats({ isLoggedIn }) {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [takenSeats, setTakenSeats] = useState([]);
   const location = useLocation();
-  const { movie, ticketQuantities, showShowDates, showShowTimes } = location.state || {};
-  const totalTickets = ticketQuantities.adults + ticketQuantities.children + ticketQuantities.seniors;
   const navigate = useNavigate();
-  
+
+  const { movie, ticketQuantities, showShowDates, showShowTimes, existingSelections } = location.state || {};
+  // Calculate the total tickets needed from the ticketQuantities passed in state
+  const totalTicketsRequired = ticketQuantities ? Object.values(ticketQuantities).reduce((acc, value) => acc + value, 0) : 0;
 
   useEffect(() => {
+    // Initialize taken seats and optionally pre-populate selected seats if coming from OrderSummary
     const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     const seatsPerRow = 10;
     const newTakenSeats = rows.flatMap(row =>
@@ -22,12 +23,17 @@ function BookSeats() {
         Math.random() < 0.3 ? `${row}${i + 1}` : null
       ).filter(Boolean)
     );
+
     setTakenSeats(newTakenSeats);
-  }, []); 
+
+    if (existingSelections) {
+      setSelectedSeats(existingSelections);
+    }
+  }, [existingSelections]); // Reacting to existingSelections ensures we reset selectedSeats if coming back to add more
 
   const navigateToOrderSummary = () => {
-    if (selectedSeats.length === 0 || selectedSeats.length > totalTickets) {
-      alert('Please select the correct number of seats before continuing.');
+    if (selectedSeats.length < totalTicketsRequired) {
+      alert(`Please select ${totalTicketsRequired} seats before continuing.`);
       return;
     }
     navigate('/ordersummary', { 
@@ -42,20 +48,21 @@ function BookSeats() {
   };
 
   const handleSeatClick = (seatId) => {
+    // Existing seat click logic to select/deselect seats
     if (!takenSeats.includes(seatId)) {
-      if (selectedSeats.length < totalTickets || selectedSeats.includes(seatId)) {
-        setSelectedSeats((prevSelectedSeats) => {
-          if (prevSelectedSeats.includes(seatId)) {
-            return prevSelectedSeats.filter((id) => id !== seatId);
-          } else {
-            return [...prevSelectedSeats, seatId];
-          }
-        });
-      } else {
-        alert('You cannot select more seats than the total number of tickets.');
-      }
+      setSelectedSeats((prevSelectedSeats) => {
+        if (prevSelectedSeats.includes(seatId)) {
+          return prevSelectedSeats.filter(id => id !== seatId);
+        } else if (prevSelectedSeats.length < totalTicketsRequired) {
+          return [...prevSelectedSeats, seatId];
+        } else {
+          alert(`You can only select ${totalTicketsRequired} seats in total.`);
+          return prevSelectedSeats;
+        }
+      });
     }
   };
+
 
   const renderSeats = () => {
     const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']; 
@@ -83,7 +90,7 @@ function BookSeats() {
   
   return (
     <div>
-      <Header />
+      <Header isLoggedIn={isLoggedIn}/>
       <div className="book-seats">
         {movie && (
           <>
