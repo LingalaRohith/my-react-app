@@ -83,4 +83,13 @@ body {
     padding-top: 20px;
     font-size: 20px;
   }
-  
+  .error-message {
+    font-size: 0.8rem; 
+    color: red; 
+    margin-top: 5px;
+}
+.mandatory-note { 
+  font-size: 0.8rem; 
+    color: red; 
+    margin-top: 5px;
+}
