@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import './OrderSummary.css'; 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+
 
 const OrderSummary = ({ isLoggedIn }) => {
   const location = useLocation();
@@ -121,7 +120,7 @@ const OrderSummary = ({ isLoggedIn }) => {
           </div> 
           <div className="button-container">
           <button className="order-summary-button back-button" onClick={handleBack}>
-            <FontAwesomeIcon icon={faArrowLeft} /> {/* FontAwesome arrow icon */}
+            
             </button>
             <button className="order-summary-button confirm-continue-button" onClick={navigateToCheckout}>Confirm and Continue</button>
           </div>

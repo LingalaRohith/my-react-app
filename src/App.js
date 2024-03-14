@@ -17,6 +17,10 @@ import OrderSummary from "./components/OrderSummary";
 import OrderConfirmation from "./components/OrderConfirmation"; 
 import Checkout from "./components/Checkout"; 
 import ProfilePage from "./components/ProfilePage";
+import ForgotPassword from "./components/ForgotPassword";
+import EmailSent from "./components/EmailSent"
+import PasswordChange from "./components/PasswordChange";
+import PasswordConfirmation from './components/PasswordConfirmation';
 
 function App() {
     const [isLoggedIn, setLoggedIn] = useState(true);
@@ -31,6 +35,10 @@ function App() {
                     <Route path="login" element={<Login />} />
                     <Route path="moviespage" element={<MoviesPage />} />
                     <Route path="verification" element={<Verification />} />
+                    <Route path="forgot-password" element={<ForgotPassword />} />
+                    <Route path="email-sent" element={<EmailSent />} />
+                    <Route path="password-change" element={<PasswordChange />} />
+                    <Route path="password-confirmation" element={<PasswordConfirmation />} />
                     <Route path="editprofile" element={<EditProfile isLoggedIn={true} />} />
                     <Route path="admin" element={<AdminMain isLoggedIn={true} />} />
                     <Route path="movie-info" element={<MovieInformationPage isLoggedIn={true}/>}/>
