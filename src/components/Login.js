@@ -18,15 +18,6 @@ function Login() {
               </div>
                 <input type="submit" value="Submit" className="submit-button"/>
             </form>
-<<<<<<< HEAD
-            <p class="lin"><a href="/forgot-password">Forgot password?</a></p>
-            {popupMessage && (
-                    <div className="popup">
-                        <span className="popup-message">{popupMessage}</span>
-                    </div>
-                )}
-=======
->>>>>>> parent of 91bf12e (Integration_login_and_signup)
             <p class="lin"> Don't have an account? <a href="/signup">Sign up here!</a></p>
         </div>
       </div>
