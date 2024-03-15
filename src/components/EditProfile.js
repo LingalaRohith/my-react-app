@@ -18,7 +18,9 @@ const initialProfileData = {
         state: 'Anystate',
         postalCode: '12345',
         country: 'Canada'
-    }
+    },
+    password: '', // Placeholder for password change, not storing actual password here for security reasons
+    promotions: false, // Initially not registered for promotions
 };
 
 function EditProfile({ isLoggedIn }) {
@@ -52,6 +54,13 @@ function EditProfile({ isLoggedIn }) {
         setShowAddressInputs(!showAddressInputs);
     };
 
+    const togglePromotions = () => {
+        setProfileData(prevState => ({
+            ...prevState,
+            promotions: !prevState.promotions
+        }));
+    };
+
     return (
         <div>  
             <Header isLoggedIn={isLoggedIn}/>
@@ -67,12 +76,20 @@ function EditProfile({ isLoggedIn }) {
                         <input type="text" name="lastName" value={profileData.lastName} onChange={handleChange} />
                     </label>
                     <label>
-                        Email:
-                        <input type="email" name="email" value={profileData.email} onChange={handleChange} />
+                        Email (cannot be changed):
+                        <input type="email" name="email" value={profileData.email} disabled />
                     </label>
                     <label>
                         Phone Number:
                         <input type="tel" name="phone" value={profileData.phone} onChange={handleChange} />
+                    </label>
+                    <label>
+                        New Password:
+                        <input type="password" name="password" value={profileData.password} onChange={handleChange} />
+                    </label>
+                    <label>
+                        Register for Promotions:
+                        <input type="checkbox" name="promotions" checked={profileData.promotions} onChange={togglePromotions} />
                     </label>
                     <button type="button" onClick={toggleCreditCardInputs}>
                         {showCreditCardInputs ? 'Hide Credit Card Info' : 'Add Credit Card Info'}
@@ -81,15 +98,15 @@ function EditProfile({ isLoggedIn }) {
                         <div key={index}>
                             <label>
                                 Credit Card Number:
-                                <input type="text" name="number" />
+                                <input type="text" name="number" value={card.number} onChange={(e) => handleCreditCardChange(index, e)} />
                             </label>
                             <label>
                                 Expiration Date:
-                                <input type="text" name="expirationDate" />
+                                <input type="text" name="expirationDate" value={card.expirationDate} onChange={(e) => handleCreditCardChange(index, e)} />
                             </label>
                             <label>
                                 CVV:
-                                <input type="text" name="cvv" />
+                                <input type="text" name="cvv" value={card.cvv} onChange={(e) => handleCreditCardChange(index, e)} />
                             </label>
                         </div>
                     ))}
@@ -99,33 +116,34 @@ function EditProfile({ isLoggedIn }) {
                     </button>
                     {showAddressInputs && (
                         <div>
-                            <label>
-                                Address:
-                                <input type="text" name="homeAddress" value={profileData.address.homeAddress} onChange={handleChange}/>
-                            </label>
-                            <label>
-                                City:
-                                <input type="text" name="city" value={profileData.address.city} onChange={handleChange}/>
-                            </label>
-                            <label>
-                                State/Province:
-                                <input type="text" name="state" value={profileData.address.state} onChange={handleChange}/>
-                            </label>
-                            <label>
-                                Postal Code:
-                                <input type="text" name="postalCode" value={profileData.address.postalCode} onChange={handleChange}/>
-                            </label>
-                            <label>
-                                Country:
-                                <input type="text" name="country" value={profileData.address.country} onChange={handleChange}/>
-                            </label>
-                        </div>
-                    )}
+                        <label>
+                            Address:
+                            <input type="text" name="homeAddress" value={profileData.address.homeAddress} onChange={handleChange}/>
+                        </label>
+                        <label>
+                            City:
+                            <input type="text" name="city" value={profileData.address.city} onChange={handleChange}/>
+                        </label>
+                        <label>
+                            State/Province:
+                            <input type="text" name="state" value={profileData.address.state} onChange={handleChange}/>
+                        </label>
+                        <label>
+                            Postal Code:
+                            <input type="text" name="postalCode" value={profileData.address.postalCode} onChange={handleChange}/>
+                        </label>
+                        <label>
+                            Country:
+                            <input type="text" name="country" value={profileData.address.country} onChange={handleChange}/>
+                        </label>
+                    </div>
+                )}
 
-                    <button type="submit">Save Changes</button>
-                </form>
-            </div>
+                <button type="submit">Save Changes</button>
+            </form>
         </div>
-    );
+    </div>
+);
 }
+
 export default EditProfile;
