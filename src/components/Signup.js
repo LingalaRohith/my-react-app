@@ -42,7 +42,6 @@ const Signup = () => {
         return Object.keys(errors).length === 0;
     };
 
-<<<<<<< HEAD
     // const handleSubmit = (event) => {
       //  event.preventDefault();
 
@@ -55,10 +54,7 @@ const Signup = () => {
      //   navigate('/registration-confirmation', { state: { email: formData.email } });
    // };
     const [popupMessage, setPopupMessage] = useState('');
-    const handleSubmit = async (event) => {
-=======
     const handleSubmit = (event) => {
->>>>>>> b0b950f64a38f255dcea2c3b8d1e3d81b40a5729
         event.preventDefault();
 
         if (!validateForm()) {

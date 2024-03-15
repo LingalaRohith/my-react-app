@@ -19,6 +19,7 @@ function Login() {
                 <input type="submit" value="Submit" className="submit-button"/>
             </form>
             <p class="lin"> Don't have an account? <a href="/signup">Sign up here!</a></p>
+            <p class ='lin'><a href="/forgot-password">Forgot Password?</a></p>
         </div>
       </div>
       
