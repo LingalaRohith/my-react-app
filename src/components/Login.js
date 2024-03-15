@@ -29,7 +29,7 @@ function Login({ setLoggedIn }) {
 
     return (
       <div>  
-        <Header />
+        <Header firstInitial="R" lastInitial="K"/>
         <div className="signup-container">
             <h3>Log in:</h3>
             <form className="signup-form" onSubmit={handleLogin}>

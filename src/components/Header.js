@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../resources/logo.png';
 import { Link } from 'react-router-dom';
 import './header.css';
+import './Signup.js';
 
 const Hdr = ({ isLoggedIn, setLoggedIn }) => {
 
@@ -18,6 +19,9 @@ const Hdr = ({ isLoggedIn, setLoggedIn }) => {
       <div className="buttons">
         {isLoggedIn ? (
           <>
+            <Link to="/editprofile">
+              <button>Edit Profile</button>
+            </Link>
             <Link to="/">
               <button>Home</button>
             </Link>

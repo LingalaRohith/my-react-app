@@ -54,7 +54,7 @@ function PasswordChange() {
                 <Header />
             )}
             <div className="password-change-container">
-                <h2>Forgot Password</h2>
+                <h2>Reset Password</h2>
                 <form className="password-change-form" onSubmit={handleSubmit}>
                 <div className="input-group">
                          <input type="password" id="password" name="password" placeholder="Password" required onChange={handleInputChange} />
