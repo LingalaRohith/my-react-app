@@ -44,15 +44,15 @@ const Signup = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
+      
         if (!validateForm()) {
-            return;
+          return;
         }
-
-        // Here, include your registration logic
-        // If registration is successful, navigate to the confirmation page
-        navigate('/registration-confirmation', { state: { email: formData.email } });
-    };
+      
+        // Here, include your registration logic like sending a verification code to the user's email
+        // If registration logic is successful, navigate to the verification code page
+        navigate('/verify-account', { state: { email: formData.email } });
+      };
 
     return (
         <div>

@@ -4,7 +4,6 @@ import LandingPage from "./components/LandingPage";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import MoviesPage from "./components/MoviesPage";
-import Verification from "./components/Verification";
 import RegistrationConfirmation from './components/RegistrationConfirmation';
 import EditProfile from "./components/EditProfile";
 import AdminMain from "./components/AdminMain";
@@ -21,8 +20,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import EmailSent from "./components/EmailSent"
 import PasswordChange from "./components/PasswordChange";
 import PasswordConfirmation from './components/PasswordConfirmation';
-import Hdr from './components/Header';
-
+import VerifyAccount from './components/VerifyAccount';
 function App() {
     const [isLoggedIn, setLoggedIn] = useState(true);
   
@@ -34,7 +32,6 @@ function App() {
             <Route path="signup" element={<Signup setLoggedIn={setLoggedIn} />} />
             <Route path="login" element={<Login setLoggedIn={setLoggedIn} />} />
             <Route path="moviespage" element={<MoviesPage isLoggedIn={isLoggedIn} />} />
-            <Route path="verification" element={<Verification isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="forgot-password" element={<ForgotPassword isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="email-sent" element={<EmailSent />} />
             <Route path="password-change" element={<PasswordChange />} />
@@ -50,6 +47,8 @@ function App() {
             <Route path="/order-confirmation" element={<OrderConfirmation isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="/checkout" element={<Checkout isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="/profilepage" element={<ProfilePage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="/verify-account" element={<VerifyAccount isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} /> 
+            <Route path="/registration-confirmation" element={<RegistrationConfirmation isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} /> 
           </Routes>
         </Router>
       </div>

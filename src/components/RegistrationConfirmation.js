@@ -8,7 +8,7 @@ const RegistrationConfirmation = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
     const location = useLocation(); 
-    const email = location.state?.email; // Retrieve email from location state
+    const email = location.state?.email; 
 
     useEffect(() => {
         confetti({
@@ -33,13 +33,7 @@ const RegistrationConfirmation = () => {
             <div className="dark-background">
                 <div className="confirmation-card">
                     <h1>Registration Successful</h1>
-                    <p>Your registration has been successfully completed.</p>
-                    {/* Include the email in the message */}
-                    {email && (
-                        <p>
-                            A confirmation email has been sent to your email at {email} to fully confirm your account.
-                        </p>
-                    )}
+                    <p>Your registration has been successfully completed.</p> {/* Include the email in the message */}
                     <button onClick={handleClose} className="close-button">
                         Close
                     </button>
