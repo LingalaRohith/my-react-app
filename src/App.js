@@ -34,22 +34,22 @@ function App() {
             <Route path="signup" element={<Signup setLoggedIn={setLoggedIn} />} />
             <Route path="login" element={<Login setLoggedIn={setLoggedIn} />} />
             <Route path="moviespage" element={<MoviesPage isLoggedIn={isLoggedIn} />} />
-            <Route path="verification" element={<Verification />} />
-            <Route path="forgot-password" element={<ForgotPassword />} />
+            <Route path="verification" element={<Verification isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="forgot-password" element={<ForgotPassword isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="email-sent" element={<EmailSent />} />
             <Route path="password-change" element={<PasswordChange />} />
             <Route path="password-confirmation" element={<PasswordConfirmation />} />
-            <Route path="editprofile" element={<EditProfile isLoggedIn={isLoggedIn} />} />
-            <Route path="admin" element={<AdminMain isLoggedIn={isLoggedIn} />} />
-            <Route path="movie-info" element={<MovieInformationPage isLoggedIn={isLoggedIn} />} />
-            <Route path="admin/manage-users" element={<ManageUsers isLoggedIn={isLoggedIn} />} />
-            <Route path="admin/manage-movies" element={<ManageMovies isLoggedIn={isLoggedIn} />} />
-            <Route path="admin/manage-promotions" element={<ManagePromotions isLoggedIn={isLoggedIn} />} />
-            <Route path="bookseats" element={<BookSeats isLoggedIn={isLoggedIn} />} />
-            <Route path="ordersummary" element={<OrderSummary isLoggedIn={isLoggedIn} />} />
+            <Route path="editprofile" element={<EditProfile isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="admin" element={<AdminMain isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="movie-info" element={<MovieInformationPage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="admin/manage-users" element={<ManageUsers isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="admin/manage-movies" element={<ManageMovies isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="admin/manage-promotions" element={<ManagePromotions isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="bookseats" element={<BookSeats isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="ordersummary" element={<OrderSummary isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="/order-confirmation" element={<OrderConfirmation isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
-            <Route path="/checkout" element={<Checkout isLoggedIn={isLoggedIn} />} />
-            <Route path="/profilepage" element={<ProfilePage isLoggedIn={isLoggedIn} />} />
+            <Route path="/checkout" element={<Checkout isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="/profilepage" element={<ProfilePage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
           </Routes>
         </Router>
       </div>

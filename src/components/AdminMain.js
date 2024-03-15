@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import "./admin.css";
 
-function AdminMain({isLoggedIn}) {
+function AdminMain({isLoggedIn, setLoggedIn}) {
     const navigate = useNavigate(); 
 
     const handleNavigation = (path) => {
@@ -12,7 +12,7 @@ function AdminMain({isLoggedIn}) {
 
     return (
         <div>
-            <Header isLoggedIn={isLoggedIn}/>
+<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
             <div className='admin'>
                 <h1>Administrator Home Page</h1>
                 <h2>Options: </h2>

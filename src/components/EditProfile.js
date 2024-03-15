@@ -23,7 +23,7 @@ const initialProfileData = {
     promotions: false, // Initially not registered for promotions
 };
 
-function EditProfile({ isLoggedIn }) {
+function EditProfile({ isLoggedIn, setLoggedIn }) {
     const [profileData, setProfileData] = useState(initialProfileData);
     const [showCreditCardInputs, setShowCreditCardInputs] = useState(false);
     const [showAddressInputs, setShowAddressInputs] = useState(false);
@@ -63,7 +63,7 @@ function EditProfile({ isLoggedIn }) {
 
     return (
         <div>  
-            <Header isLoggedIn={isLoggedIn}/>
+    <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
             <div className="edit-profile-container">
                 <h2>Edit Profile</h2>
                 <form className="edit-profile-form">

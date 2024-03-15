@@ -22,7 +22,7 @@ const initialUserData = {
   }
 };
 
-function ProfilePage({ isLoggedIn }) {
+function ProfilePage({ isLoggedIn, setLoggedIn }) {
   const [userData, setUserData] = useState(initialUserData);
 
   const handleDeleteCreditCard = () => {
@@ -39,7 +39,7 @@ function ProfilePage({ isLoggedIn }) {
 
   return (
     <div>
-      <Header isLoggedIn={isLoggedIn} />
+<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       <div className="profile-container">
         <h2>Profile</h2>
         <div className="profile-info">

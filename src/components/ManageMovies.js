@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import './ManageMovies.css';
 
-function ManageMovies() {
+function ManageMovies(isLoggedIn, setLoggedIn) {
     const initialMovies = [
         { id: 1, name: 'Bob Marley: One Love', img: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Bob_Marley_One_Love.jpg/220px-Bob_Marley_One_Love.jpg', showtimes: [] },
         { id: 2, name: 'Madame Web', img: 'https://shorturl.at/ruvL2', showtimes: [] },
@@ -63,7 +63,7 @@ function ManageMovies() {
 
     return (
         <div>
-            <Header />
+<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
             <div className="manage-movies">
                 <h5>Manage Movies</h5>
                 <div className="add-movie-form">

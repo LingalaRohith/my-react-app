@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 
-function MoviesPage() {
+function MoviesPage(isLoggedIn, setLoggedIn) {
     return (
       
       <div>  

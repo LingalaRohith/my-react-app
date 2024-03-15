@@ -4,7 +4,7 @@ import Seat from './Seat';
 import Header from './Header';
 import './BookSeats.css';
 
-function BookSeats({ isLoggedIn }) {
+function BookSeats({ isLoggedIn, setLoggedIn }) {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [takenSeats, setTakenSeats] = useState([]);
   const location = useLocation();
@@ -89,7 +89,7 @@ function BookSeats({ isLoggedIn }) {
   
   return (
     <div>
-      <Header isLoggedIn={isLoggedIn}/>
+<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       <div className="book-seats">
         {movie && (
           <>

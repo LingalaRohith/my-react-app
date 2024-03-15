@@ -4,7 +4,7 @@ import Header from './Header';
 import './Checkout.css';
 
 
-function Checkout({isLoggedIn}) {
+function Checkout({isLoggedIn, setLoggedIn}) {
   const [email, setEmail] = useState('');
   const [cardName, setCardName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
@@ -85,7 +85,7 @@ function Checkout({isLoggedIn}) {
 
   return (
     <>
-      <Header isLoggedIn={isLoggedIn}/>
+<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       <div className="order-summary-container">
         <div className="review-order-section">
           <h1>Review Order</h1>
