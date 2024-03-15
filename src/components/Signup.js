@@ -81,16 +81,16 @@ const Signup = () => {
     };
 
     // const handleSubmit = (event) => {
-    //     event.preventDefault();
+      //  event.preventDefault();
 
-    //     if (!validateForm()) {
-    //         return;
-    //     }
+      //  if (!validateForm()) {
+      //  return;
+     //   }
 
-    //     // Here, include your registration logic
-    //     // If registration is successful, navigate to the confirmation page
-    //     navigate('/registration-confirmation', { state: { email: formData.email } });
-    // };
+    // Here, include your registration logic
+    // If registration is successful, navigate to the confirmation page
+     //   navigate('/registration-confirmation', { state: { email: formData.email } });
+   // };
     const [popupMessage, setPopupMessage] = useState('');
     const handleSubmit = async (event) => {
         event.preventDefault();
