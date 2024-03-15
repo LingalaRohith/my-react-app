@@ -29,8 +29,33 @@ function Checkout({isLoggedIn}) {
   const total = subtotal + bookingFee + taxes;
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
-    // Navigate to OrderConfirmation page
+    event.preventDefault();
+  
+    let missingFields = [];
+  
+    // Check individual fields and add custom messages for missing ones
+    if (!email.trim()) missingFields.push('Email Address');
+    if (!billingAddress.trim()) missingFields.push('Billing Address');
+    if (!city.trim()) missingFields.push('City');
+    if (!state.trim()) missingFields.push('State');
+    if (!zipCode.trim()) missingFields.push('Zip Code');
+    if (!country.trim()) missingFields.push('Country');
+  
+    // Check for payment fields if not using a saved card
+    if (!useSavedCard) {
+      if (!cardName.trim()) missingFields.push('Name on Card');
+      if (!cardNumber.trim()) missingFields.push('Card Number');
+      if (!cvc.trim()) missingFields.push('CVC');
+      if (!expDate.trim()) missingFields.push('Expiration Date');
+    }
+  
+    // Alert the user with specific fields that are missing
+    if (missingFields.length > 0) {
+      alert(`Please fill out the following field(s): ${missingFields.join(', ')}.`);
+      return;
+    }
+  
+    // If all validations pass, proceed with form submission
     navigate('/order-confirmation', {
       state: {
         movie: movie,
@@ -42,6 +67,7 @@ function Checkout({isLoggedIn}) {
       }
     });
   };
+  
   
   const savedCard = {
       cardNumber: '●●●● ●●●● ●●●● 5058',

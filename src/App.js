@@ -21,40 +21,40 @@ import ForgotPassword from "./components/ForgotPassword";
 import EmailSent from "./components/EmailSent"
 import PasswordChange from "./components/PasswordChange";
 import PasswordConfirmation from './components/PasswordConfirmation';
+import Hdr from './components/Header';
 
 function App() {
     const [isLoggedIn, setLoggedIn] = useState(true);
-
+  
     return (
-    <div>
+      <div>
         <Router>
-                <Routes>
-                    <Route path="/registration-confirmation" element={<RegistrationConfirmation />} />
-                    <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
-                    <Route path="signup" element={<Signup />} />
-                    <Route path="login" element={<Login />} />
-                    <Route path="moviespage" element={<MoviesPage />} />
-                    <Route path="verification" element={<Verification />} />
-                    <Route path="forgot-password" element={<ForgotPassword />} />
-                    <Route path="email-sent" element={<EmailSent />} />
-                    <Route path="password-change" element={<PasswordChange />} />
-                    <Route path="password-confirmation" element={<PasswordConfirmation />} />
-                    <Route path="editprofile" element={<EditProfile isLoggedIn={true} />} />
-                    <Route path="admin" element={<AdminMain isLoggedIn={true} />} />
-                    <Route path="movie-info" element={<MovieInformationPage isLoggedIn={true}/>}/>
-                    <Route path="/" component={<LandingPage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
-                    <Route path="admin/manage-users" element={<ManageUsers isLoggedIn={true}/>} />
-                    <Route path="admin/manage-movies" element={<ManageMovies isLoggedIn={true}/>} />
-                    <Route path="admin/manage-promotions" element={<ManagePromotions isLoggedIn={true}/>} />
-                    <Route path="bookseats" element={<BookSeats isLoggedIn={true}/>} />
-                    <Route path="ordersummary" element={<OrderSummary isLoggedIn={true}/>} />
-                    <Route path="/order-confirmation" element={<OrderConfirmation isLoggedIn={true}/>} />
-                    <Route path="/checkout" element={<Checkout isLoggedIn={true}/>} />
-                    <Route path="/profilepage" element={<ProfilePage isLoggedIn={true}/>} />
-                </Routes>
+          <Routes>
+            <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="signup" element={<Signup setLoggedIn={setLoggedIn} />} />
+            <Route path="login" element={<Login setLoggedIn={setLoggedIn} />} />
+            <Route path="moviespage" element={<MoviesPage isLoggedIn={isLoggedIn} />} />
+            <Route path="verification" element={<Verification />} />
+            <Route path="forgot-password" element={<ForgotPassword />} />
+            <Route path="email-sent" element={<EmailSent />} />
+            <Route path="password-change" element={<PasswordChange />} />
+            <Route path="password-confirmation" element={<PasswordConfirmation />} />
+            <Route path="editprofile" element={<EditProfile isLoggedIn={isLoggedIn} />} />
+            <Route path="admin" element={<AdminMain isLoggedIn={isLoggedIn} />} />
+            <Route path="movie-info" element={<MovieInformationPage isLoggedIn={isLoggedIn} />} />
+            <Route path="admin/manage-users" element={<ManageUsers isLoggedIn={isLoggedIn} />} />
+            <Route path="admin/manage-movies" element={<ManageMovies isLoggedIn={isLoggedIn} />} />
+            <Route path="admin/manage-promotions" element={<ManagePromotions isLoggedIn={isLoggedIn} />} />
+            <Route path="bookseats" element={<BookSeats isLoggedIn={isLoggedIn} />} />
+            <Route path="ordersummary" element={<OrderSummary isLoggedIn={isLoggedIn} />} />
+            <Route path="/order-confirmation" element={<OrderConfirmation isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path="/checkout" element={<Checkout isLoggedIn={isLoggedIn} />} />
+            <Route path="/profilepage" element={<ProfilePage isLoggedIn={isLoggedIn} />} />
+          </Routes>
         </Router>
-    </div>
+      </div>
     );
-}
-
-export default App;
+  }
+  
+  export default App;
+  

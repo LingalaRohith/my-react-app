@@ -3,6 +3,7 @@ import Header from './Header';
 
 function MoviesPage() {
     return (
+      
       <div>  
         
       </div>

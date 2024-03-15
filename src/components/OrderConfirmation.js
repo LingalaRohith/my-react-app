@@ -3,7 +3,7 @@ import Header from './Header';
 import { useLocation } from 'react-router-dom';
 import './OrderConfirmation.css'; 
 
-function  OrderConfirmation({isLoggedIn}) {
+function OrderConfirmation({ isLoggedIn, setLoggedIn }) {
 
   const location = useLocation();
   const { movie, localSelectedSeats, showShowDates, showShowTimes, total } = location.state;
@@ -23,7 +23,7 @@ function  OrderConfirmation({isLoggedIn}) {
 
   return (
     <> 
-    <Header isLoggedIn={isLoggedIn}/>
+<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
     <div className="order-confirmation-container">
     <div className="order-confirmation-container">
     <div className="checkmark-wrapper">
