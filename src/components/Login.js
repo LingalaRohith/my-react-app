@@ -11,25 +11,29 @@ function Login({ setLoggedIn }) {
 
   const handleLogin = async (e) => {
       e.preventDefault();
-      // Placeholder for your login verification logic
-
-      // Simulate login success
-      setLoggedIn(true); // Update login state
-      if (rememberMe) {
+      // Placeholder for login verification logic
+      setLoggedIn(true);
+      sessionStorage.setItem('userEmail', email);
+        if (rememberMe) {
           localStorage.setItem('userEmail', email);
-      } else {
+          // Simulate fetching user data
+          const fetchedUserData = {
+            firstName: '',
+            lastName: '',
+            email: email,
+            phone: '',
+          };
+          localStorage.setItem('userData', JSON.stringify(fetchedUserData));
+        } else {
           localStorage.removeItem('userEmail');
-      }
-      navigate('/'); // Navigate to the homepage
-  }
-
-  // Your existing return statement...
-
-
+          localStorage.removeItem('userData'); // Clear saved user data
+        }
+        navigate('/');
+      };
+      
 
     return (
       <div>  
-        <Header firstInitial="R" lastInitial="K"/>
         <div className="signup-container">
             <h3>Log in:</h3>
             <form className="signup-form" onSubmit={handleLogin}>

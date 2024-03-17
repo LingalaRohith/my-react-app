@@ -7,77 +7,109 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
     const location = useLocation();
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
-
+    
+    
+    const initialEmail = sessionStorage.getItem('userEmail') || localStorage.getItem('userEmail') || '';
+    const localUserData = JSON.parse(localStorage.getItem('userData') || '{}');
+    // Always attempt to get the email from localStorage
+    //const storedEmail = localStorage.getItem('userEmail') || localUserData.email || '';
 
     const initialProfileData = location.state ? location.state.userData : {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        creditCards: [], 
-        address: { 
-            homeAddress: '',
-            city: '',
-            state: '',
-            postalCode: '',
-            country: ''
+        firstName: localUserData.firstName || '',
+        lastName: localUserData.lastName || '',
+        email: initialEmail,
+        phone: localUserData.phone || '',
+        creditCards: localUserData.creditCards || [],
+        address: localUserData.address || {
+          homeAddress: '',
+          city: '',
+          state: '',
+          postalCode: '',
+          country: ''
         },
         password: '',
-        promotions: false,
-    };
+        promotions: localUserData.promotions || false,
+      };
 
-    const [profileData, setProfileData] = useState(initialProfileData);
-    const [showCreditCardInputs, setShowCreditCardInputs] = useState(initialProfileData.creditCards && initialProfileData.creditCards.length > 0);
-    const [showAddressInputs, setShowAddressInputs] = useState(!!initialProfileData.address.homeAddress);
+      const [profileData, setProfileData] = useState(initialProfileData);
+
+    const [showCreditCardInputs, setShowCreditCardInputs] = useState(profileData.creditCards?.length > 0);
+    const [showAddressInputs, setShowAddressInputs] = useState(!!profileData.address?.homeAddress);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        setProfileData({ ...profileData, [name]: type === 'checkbox' ? checked : value });
-    };
+        if (type === 'checkbox') {
+          setProfileData({ ...profileData, [name]: checked });
+        } else {
+          setProfileData({ ...profileData, [name]: value });
+        }
+      };
 
     const handleCreditCardChange = (index, e) => {
         const { name, value } = e.target;
-        let updatedCreditCards = [...profileData.creditCards];
+        const updatedCreditCards = [...profileData.creditCards];
         updatedCreditCards[index] = { ...updatedCreditCards[index], [name]: value };
-        setProfileData({ ...profileData, creditCards: updatedCreditCards });
+        setProfileData(prev => ({ ...prev, creditCards: updatedCreditCards }));
     };
-    
 
     const handleAddressChange = (e) => {
         const { name, value } = e.target;
-        setProfileData({ ...profileData, address: { ...profileData.address, [name]: value } });
+        setProfileData(prev => ({
+            ...prev,
+            address: { ...prev.address, [name]: value }
+        }));
     };
 
-    const toggleCreditCardInputs = () => {
-        setShowCreditCardInputs(!showCreditCardInputs);
-    };
+    const toggleCreditCardInputs = () => setShowCreditCardInputs(!showCreditCardInputs);
+    const toggleAddressInputs = () => setShowAddressInputs(!showAddressInputs);
+    const togglePromotions = () => setProfileData(prev => ({ ...prev, promotions: !prev.promotions }));
 
     const addCreditCard = (e) => {
-        e.preventDefault(); 
-        if (profileData.creditCards.length < 3) {
-            setProfileData({
-                ...profileData,
-                creditCards: [...profileData.creditCards, { number: '', expirationDate: '', cvv: '' }]
-            });
-        }
-    };
-
-
-    const toggleAddressInputs = () => {
-        setShowAddressInputs(!showAddressInputs);
-    };
-
-    const togglePromotions = () => {
-        setProfileData({ ...profileData, promotions: !profileData.promotions });
+        e.preventDefault();
+        const newCard = { number: '', expirationDate: '', cvv: '' };
+        setProfileData(prev => ({
+            ...prev,
+            creditCards: [...prev.creditCards, newCard]
+        }));
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/profilepage', { state: { userData: profileData } });
-    };
-
+        let newErrors = {};
     
-
+        // Basic field validations
+        if (!profileData.firstName.trim()) newErrors.firstName = 'First name is required.';
+        if (!profileData.lastName.trim()) newErrors.lastName = 'Last name is required.';
+        if (!profileData.phone.trim()) newErrors.phone = 'Phone number is required.';
+    
+        // Validate credit card inputs if they are shown
+        if (showCreditCardInputs && profileData.creditCards) {
+            profileData.creditCards.forEach((card, index) => {
+                if (!card.number.trim()) newErrors[`creditCardNumber${index}`] = 'Credit card number is required.';
+                if (!card.expirationDate.trim()) newErrors[`creditCardExpiration${index}`] = 'Expiration date is required.';
+                if (!card.cvv.trim()) newErrors[`creditCardCvv${index}`] = 'CVV is required.';
+            });
+        }
+    
+        // Validate address inputs if they are shown
+        if (showAddressInputs && profileData.address) {
+            if (!profileData.address.homeAddress.trim()) newErrors.homeAddress = 'Home address is required.';
+            if (!profileData.address.city.trim()) newErrors.city = 'City is required.';
+            if (!profileData.address.state.trim()) newErrors.state = 'State is required.';
+            if (!profileData.address.postalCode.trim()) newErrors.postalCode = 'Postal code is required.';
+            if (!profileData.address.country.trim()) newErrors.country = 'Country is required.';
+        }
+    
+        setErrors(newErrors); // Update the state with newErrors
+    
+        // Only navigate if there are no new errors
+        if (Object.keys(newErrors).length === 0) {
+            localStorage.setItem('userData', JSON.stringify(profileData)); // Persist changes
+            navigate('/profilepage', { state: { userData: profileData } }); // Navigate with updated data
+        }
+    };
+    
+    
     if (!profileData.creditCards) {
         setProfileData({ ...profileData, creditCards: [] });
     }
@@ -90,10 +122,12 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
                     <label>
                         First name:
                         <input type="text" name="firstName" value={profileData.firstName} onChange={handleChange} />
+                        {errors.firstName && <p className="error">{errors.firstName}</p>}
                     </label>
                     <label>
                         Last name:
                         <input type="text" name="lastName" value={profileData.lastName} onChange={handleChange} />
+                        {errors.lastName && <p className="error">{errors.lastName}</p>}
                     </label>
                     <label>
                         Email (cannot be changed):
@@ -102,6 +136,8 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
                     <label>
                         Phone Number:
                         <input type="tel" name="phone" value={profileData.phone} onChange={handleChange} />
+                        {errors.phone && <p className="error">{errors.phone}</p>}
+
                     </label>
                     <label>
                         New Password:
@@ -109,30 +145,44 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
                     </label>
                     <label>
                         Register for Promotions:
-                        <input type="checkbox" name="promotions" checked={profileData.promotions} onChange={togglePromotions} />
-                    </label>
+                        <input
+                          type="checkbox"
+                          name="promotions"
+                          checked={profileData.promotions}
+                          onChange={handleChange} // Use handleChange for checkboxes as well
+                        />
+                        </label>
                     <button type="button" onClick={toggleCreditCardInputs}>
                     {showCreditCardInputs ? 'Hide Credit Card Info' : 'Add Credit Card Info'}
-                </button>
-                {showCreditCardInputs && profileData.creditCards.map((card, index) => (
+                    </button>
+                    {showCreditCardInputs && (
+                        <>
+                     {profileData.creditCards.map((card, index) => (
                     <div key={index}>
                         <label>
-                            Credit Card Number:
-                            <input type="text" name="number" value={card.number} onChange={(e) => handleCreditCardChange(index, e)} />
-                        </label>
-                        <label>
-                            Expiration Date:
-                            <input type="text" name="expirationDate" value={card.expirationDate} onChange={(e) => handleCreditCardChange(index, e)} />
-                        </label>
-                        <label>
-                            CVV:
-                            <input type="text" name="cvv" value={card.cvv} onChange={(e) => handleCreditCardChange(index, e)} />
-                        </label>
-                    </div>
-                ))}
-                <button onClick={addCreditCard} disabled={profileData.creditCards.length >= 3}>
-    Add Credit Card
-</button>
+                        Credit Card Number:
+                        <input type="text" name="number" value={card.number} onChange={(e) => handleCreditCardChange(index, e)} />
+                        {errors[`creditCardNumber${index}`] && <p className="error">{errors[`creditCardNumber${index}`]}</p>}
+                    </label>
+                    <label>
+                        Expiration Date:
+                    <input type="text" name="expirationDate" value={card.expirationDate} onChange={(e) => handleCreditCardChange(index, e)} />
+                    {errors[`creditCardExpiration${index}`] && <p className="error">{errors[`creditCardExpiration${index}`]}</p>}
+                </label>
+                <label>
+                    CVV:
+                    <input type="text" name="cvv" value={card.cvv} onChange={(e) => handleCreditCardChange(index, e)} />
+                    {errors[`creditCardCvv${index}`] && <p className="error">{errors[`creditCardCvv${index}`]}</p>}
+                </label>
+                </div>
+            ))}
+                 {profileData.creditCards.length < 3 && (
+                <button onClick={addCreditCard}>
+                Add Credit Card
+                </button>
+                )}
+                </>
+                    )}
 
                     <button type="button" onClick={toggleAddressInputs}>
                         {showAddressInputs ? 'Hide Home Address' : 'Add Home Address'}
@@ -142,22 +192,27 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
                             <label>
                                 Address:
                                 <input type="text" name="homeAddress" value={profileData.address.homeAddress} onChange={handleAddressChange}/>
+                                {errors.homeAddress && <p className="error">{errors.homeAddress}</p>}
                             </label>
                             <label>
                                 City:
                                 <input type="text" name="city" value={profileData.address.city} onChange={handleAddressChange}/>
+                                {errors.city && <p className="error">{errors.city}</p>}
                             </label>
                             <label>
                                 State/Province:
                                 <input type="text" name="state" value={profileData.address.state} onChange={handleAddressChange}/>
+                                {errors.state && <p className="error">{errors.city}</p>}
                             </label>
                             <label>
                                 Postal Code:
                                 <input type="text" name="postalCode" value={profileData.address.postalCode} onChange={handleAddressChange}/>
+                                {errors.postalCode && <p className="error">{errors.postalCode}</p>}
                             </label>
                             <label>
                                 Country:
                                 <input type="text" name="country" value={profileData.address.country} onChange={handleAddressChange}/>
+                                {errors.country && <p className="error">{errors.country}</p>}
                             </label>
                         </div>
                     )}
@@ -170,4 +225,3 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
 }
 
 export default EditProfile;
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../resources/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 import './Signup.js';
 
@@ -8,7 +8,13 @@ const Hdr = ({ isLoggedIn, setLoggedIn }) => {
 
   const handleLogout = () => {
     setLoggedIn(false);
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userData'); // Clear saved user data
+    <Link to="/login"> 
+    </Link> 
   };
+  
+
 
   return (
     <div className='header'>

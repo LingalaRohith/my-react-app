@@ -1,5 +1,5 @@
 .profile-container {
-    max-width: 500px;
+    max-width: 700px; /* Adjust width as needed */
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
@@ -16,62 +16,34 @@
 .profile-container h2 {
     text-align: center;
     color: #5c6bc0;
-    font-size: 35px;
+    font-size: 30px;
+    margin-bottom: 20px; /* Added space below the header */
 }
 
-.profile-container button {
-    padding: 10px 20px;
+.card, .style {
+    background-color: rgb(247, 215, 220);
+    border-radius: 5px;
+    padding: 15px; /* Added padding */
+    margin: 10px 0; /* Added margin for spacing between cards */
+    display: flex;
+    justify-content: space-between; /* Space out the button from the content */
+    align-items: center; /* Center items vertically */
+}
+
+.card div, .style div {
+    flex: 1; /* Makes div take up all available space, pushing the button to the end */
+}
+
+.card button, .style button {
+    padding: 10px 15px;
     background-color: #5c6bc0;
+    color: white;
     border: none;
     border-radius: 4px;
-    color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: block;
-    margin: 20px auto;
 }
 
-.profile-container button:hover {
+.card button:hover, .style button:hover {
     background-color: #3f51b5;
 }
-
-.card {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color:rgb(247, 215, 220);
-    border-radius: 5px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-bottom: 1px;
-    display: flex;
-}
-
-.card button {
-    background-color: white;
-    color: black;
-    height: 40px;
-    border: 1px solid #3f51b5;
-}
-
-.style {
-    display: flex;
-    align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color:rgb(247, 215, 220);
-    border-radius: 5px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-bottom: 1px;
-    display: flex;
-}
-
-.style button {
-    background-color: white;
-    color: black;
-    height: 40px;
-    border: 1px solid #3f51b5;
-}
-
-.style button:hover {
-    color: white;
-}
-

@@ -51,6 +51,7 @@ const Signup = () => {
       
         // Here, include your registration logic like sending a verification code to the user's email
         // If registration logic is successful, navigate to the verification code page
+        localStorage.setItem('signupData', JSON.stringify(formData));
         navigate('/verify-account', { state: { email: formData.email } });
       };
 

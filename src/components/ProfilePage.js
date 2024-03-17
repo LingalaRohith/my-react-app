@@ -5,7 +5,8 @@ import './profilepage.css';
 
 function ProfilePage({ isLoggedIn, setLoggedIn }) {
     const location = useLocation();
-    const [userData, setUserData] = useState(location.state ? location.state.userData : {
+    const localUserData = JSON.parse(localStorage.getItem('userData'));
+    const [userData, setUserData] = useState(localUserData || {
         firstName: 'Jane',
         lastName: 'Doe',
         email: 'jane.doe@example.com',
@@ -22,14 +23,16 @@ function ProfilePage({ isLoggedIn, setLoggedIn }) {
             postalCode: '12345',
             country: 'Canada'
         },
-        promotions: false,
+        promotions: '',
     });
 
     useEffect(() => {
-        if (location.state && location.state.userData) {
-            setUserData(location.state.userData);
-        }
-    }, [location.state]);
+      if (location.state && location.state.userData) {
+          setUserData(location.state.userData);
+          // Save userData to localStorage
+          localStorage.setItem('userData', JSON.stringify(location.state.userData));
+      }
+  }, [location.state]);
 
     const handleDeleteCreditCard = (index) => { // Adjusted to delete a specific card
       const updatedCreditCards = [...userData.creditCards];
@@ -38,10 +41,21 @@ function ProfilePage({ isLoggedIn, setLoggedIn }) {
     };
 
     const handleDeleteAddress = () => {
-      const updatedUserData = { ...userData };
-      delete updatedUserData.address; // Deletes the address
+      // Reset address fields instead of deleting the address object
+      const updatedUserData = {
+          ...userData,
+          address: {
+              homeAddress: '',
+              city: '',
+              state: '',
+              postalCode: '',
+              country: ''
+          }
+      };
       setUserData(updatedUserData);
-    };
+      localStorage.setItem('userData', JSON.stringify(updatedUserData));
+
+  };
 
     return (
       <div>
@@ -54,7 +68,6 @@ function ProfilePage({ isLoggedIn, setLoggedIn }) {
             <p><strong>Email:</strong> {userData.email}</p>
             <p><strong>Phone Number:</strong> {userData.phone}</p>
             {userData.creditCards && userData.creditCards.map((card, index) => (
-              <div> 
               <div key={index}>
                 <h2>Card {index + 1}:</h2>
                 <div className='card'>
@@ -66,7 +79,6 @@ function ProfilePage({ isLoggedIn, setLoggedIn }) {
                   <button onClick={() => handleDeleteCreditCard(index)}>Delete This Credit Card</button>
                </div>
                 </div>
-              </div>
             ))}
             {userData.address && (
               <div>
