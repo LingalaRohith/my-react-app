@@ -69,7 +69,7 @@ function ProfilePage({ isLoggedIn, setLoggedIn }) {
             <p><strong>Phone Number:</strong> {userData.phone}</p>
             {userData.creditCards && userData.creditCards.map((card, index) => (
               <div key={index}>
-                <h2>Card {index + 1}:</h2>
+                <h2>Card {index + 1}</h2>
                 <div className='card'>
                   <div> 
                   <p><strong>Number:</strong> {card.number}</p>
@@ -82,7 +82,7 @@ function ProfilePage({ isLoggedIn, setLoggedIn }) {
             ))}
             {userData.address && (
               <div>
-                <h2>Address:</h2>
+                <h2>Billing Address</h2>
                 <div className='style'>
                   <div> 
                   <p><strong>Home Address:</strong> {userData.address.homeAddress}</p>

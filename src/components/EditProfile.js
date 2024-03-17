@@ -28,16 +28,21 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
           country: ''
         },
         password: '',
+        currentPassword: '',
         promotions: localUserData.promotions || false,
       };
 
-      const [profileData, setProfileData] = useState(initialProfileData);
+    const [profileData, setProfileData] = useState(initialProfileData);
 
     const [showCreditCardInputs, setShowCreditCardInputs] = useState(profileData.creditCards?.length > 0);
     const [showAddressInputs, setShowAddressInputs] = useState(!!profileData.address?.homeAddress);
+    const [isChangingPassword, setIsChangingPassword] = useState(false);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+        if (name === 'password' && value) {
+            setIsChangingPassword(true); // Detect password change
+        }
         if (type === 'checkbox') {
           setProfileData({ ...profileData, [name]: checked });
         } else {
@@ -62,7 +67,7 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
 
     const toggleCreditCardInputs = () => setShowCreditCardInputs(!showCreditCardInputs);
     const toggleAddressInputs = () => setShowAddressInputs(!showAddressInputs);
-    const togglePromotions = () => setProfileData(prev => ({ ...prev, promotions: !prev.promotions }));
+    //const togglePromotions = () => setProfileData(prev => ({ ...prev, promotions: !prev.promotions }));
 
     const addCreditCard = (e) => {
         e.preventDefault();
@@ -99,13 +104,31 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
             if (!profileData.address.postalCode.trim()) newErrors.postalCode = 'Postal code is required.';
             if (!profileData.address.country.trim()) newErrors.country = 'Country is required.';
         }
+        // Validate new password for complexity and check against current password
+        if (isChangingPassword) {
+            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!profileData.password.match(passwordPattern)) {
+                newErrors.password = 'Password must be at least 8 characters long, contain a number, a special character, and a capital letter.';
+            } else if (profileData.password === profileData.currentPassword) {
+                // Check if new password is the same as the current password
+                newErrors.password = 'New password must be different from the current password.';
+            }
+        }
+
+        // Check for current password if changing password
+        if (isChangingPassword && !profileData.currentPassword.trim()) {
+            newErrors.currentPassword = 'Current password is required to change password.';
+        }
     
         setErrors(newErrors); // Update the state with newErrors
     
         // Only navigate if there are no new errors
         if (Object.keys(newErrors).length === 0) {
-            localStorage.setItem('userData', JSON.stringify(profileData)); // Persist changes
-            navigate('/profilepage', { state: { userData: profileData } }); // Navigate with updated data
+            localStorage.setItem('userData', JSON.stringify(profileData));
+            // Send email notification for profile update
+            // Typically make an API call to your backend to send the email
+            // Example: sendProfileUpdateEmail(profileData);
+            navigate('/profilepage', { state: { userData: profileData } }); 
         }
     };
     
@@ -139,9 +162,17 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
                         {errors.phone && <p className="error">{errors.phone}</p>}
 
                     </label>
+                    {isChangingPassword && (
+                        <label>
+                            Current Password:
+                            <input type="password" name="currentPassword" value={profileData.currentPassword} onChange={handleChange} />
+                            {errors.currentPassword && <p className="error">{errors.currentPassword}</p>}
+                        </label>
+                    )}
                     <label>
                         New Password:
                         <input type="password" name="password" value={profileData.password} onChange={handleChange} />
+                        {errors.password && <p style={{color: "red"}}>{errors.password}</p>}
                     </label>
                     <label>
                         Register for Promotions:
@@ -185,7 +216,7 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
                     )}
 
                     <button type="button" onClick={toggleAddressInputs}>
-                        {showAddressInputs ? 'Hide Home Address' : 'Add Home Address'}
+                        {showAddressInputs ? 'Hide Billing Address' : 'Add Billing Address'}
                     </button>
                     {showAddressInputs && (
                         <div>
