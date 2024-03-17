@@ -48,7 +48,7 @@ const Hdr = ({ isLoggedIn, setLoggedIn }) => {
             <div className='user-info' onClick={toggleDropdown}>
             <div className='user-initial'>{userInitial}</div>
               <div className={`dropdown-menu ${showDropdown ? 'show' : ''}`}>
-                <div className='dropdown-item'>Hi, {firstName}!</div>
+              <div className='dropdown-item-greeting'>Hi, {firstName}!</div>
                 <Link to="/editprofile">
                   <div className='dropdown-item'>Edit Profile</div>
                 </Link>
