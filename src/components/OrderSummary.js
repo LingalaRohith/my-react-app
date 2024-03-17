@@ -88,19 +88,18 @@ const OrderSummary = ({ isLoggedIn, setLoggedIn }) => {
       });
     }
   };
+
   return (
-    <>
-    <div className="order-special-page"> 
-    <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
-      <div className="order-summary-containers">
-      <div class="main-container">
-        <h2 className="order-summary-title">Order Summary</h2>
-        <div className="order-summary-details">
-          <div className="detail-line">Movie: {movie.title}</div>
-          <div className="detail-line">Show Date: {showShowDates}</div>
-          <div className="detail-line">Show Time: {showShowTimes}</div>
-          <div className="detail-line">Selected Seats: {localSelectedSeats.join(', ')}</div>
-          <div className="tickets-container">
+    <div className="order-special-page">
+      <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
+      <div className="main-container">
+        <div className="order-summary-containers">
+          <h2 className="order-summary-title">Order Summary</h2>
+          <div className="order-summary-details">
+            <div className="detail-line">Movie: {movie.title}</div>
+            <div className="detail-line">Show Date: {showShowDates}</div>
+            <div className="detail-line">Show Time: {showShowTimes}</div>
+            <div className="detail-line">Selected Seats: {localSelectedSeats.join(', ')}</div>
             {Object.entries(localTicketQuantities).map(([type, quantity]) => (
               <div className="ticket-detail" key={type}>
                 <span>{`${type.charAt(0).toUpperCase() + type.slice(1)}: ${quantity} x $${ticketPrices[type]}`}</span>
@@ -112,26 +111,21 @@ const OrderSummary = ({ isLoggedIn, setLoggedIn }) => {
                 </div>
               </div>
             ))}
+            <div className="detail-line">Subtotal: ${subtotal.toFixed(2)}</div>
+            <div className="detail-line">Tax (7%): ${tax.toFixed(2)}</div>
+            <div className="detail-line">Booking Fee: ${bookingFee.toFixed(2)}</div>
+            <div className="detail-line total">Total: ${total.toFixed(2)}</div>
           </div>
-          <div className="detail-line">Subtotal: ${subtotal.toFixed(2)}</div>
-          <div className="detail-line">Tax (7%): ${tax.toFixed(2)}</div>
-          <div className="detail-line">Booking Fee: ${bookingFee.toFixed(2)}</div>
-          <div className="detail-line total">Total: ${total.toFixed(2)}</div>
-          </div> 
           <div className="button-container">
-          <button className="order-summary-button back-button" onClick={handleBack}>
-            
-            </button>
+            <button className="order-summary-button back-button" onClick={handleBack}> ← </button>
             <button className="order-summary-button confirm-continue-button" onClick={navigateToCheckout}>Confirm and Continue</button>
           </div>
           {error && <div className="error-message">{error}</div>}
         </div>
-        </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default OrderSummary;
-
 
