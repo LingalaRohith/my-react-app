@@ -34,6 +34,8 @@ function Login({ setLoggedIn }) {
 
     return (
       <div>  
+        <Header/>
+
         <div className="signup-container">
             <h3>Log in:</h3>
             <form className="signup-form" onSubmit={handleLogin}>

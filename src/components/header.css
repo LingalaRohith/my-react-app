@@ -1,38 +1,88 @@
 .header {
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    background-color: #080533;
-  }
-  
-  .header h1 {
-    font-family: "Satisfy", cursive;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-    font-size: 44px;
-    flex-grow: 1; 
-  }
-  
-  .logo {
-    height: 70px; 
-    margin-right: 20px; 
-  }
-  
-  button {
-    background-color: transparent;
-    border: 0px;
-    cursor: pointer;
-    padding: 10px 20px;
-    margin-left: 10px;
-    font-weight: bold;
-    color: white;
-    font-size: 15px;
-  }
-  
-  button:hover {
-    color: #dbdae4;
-  }
-    
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: #080533;
+}
+
+.header h1 {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  font-size: 44px;
+  flex-grow: 1; 
+}
+
+.logo {
+  height: 70px; 
+  margin-right: 20px; 
+}
+
+
+.buttons, .user-info {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  border: 0px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 15px;
+  border-radius: 20px; 
+  transition: background-color 0.3s; 
+}
+
+button:hover {
+  background-color: #f3f3f3;
+}
+
+.user-info {
+  position: relative;
+  cursor: pointer;
+  padding-left: 20px;
+}
+
+.user-initial {
+  width: 40px;
+  height: 40px;
+  background-color: #665;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin-left: 20px; 
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px; 
+  right: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 12px 30px;
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.dropdown-item:hover {
+  background-color: #ddd;
+}
