@@ -36,7 +36,11 @@ function Login({ setLoggedIn }) {
           localStorage.removeItem('userEmail');
           localStorage.removeItem('userData'); 
         }
-        navigate('/');
+        if (email === 'rheakartha@gmail.com' || email === 'furwahturabi16@gmail.com' || email === 'catekimbrell@gmail.com' || email === 'rohith.lingala@uga.edu') {
+          navigate('/admin');
+        } else {
+          navigate('/');
+        }
       };
       
       return (
