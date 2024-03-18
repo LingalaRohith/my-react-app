@@ -7,11 +7,11 @@ const EmailSent = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
     const location = useLocation(); 
-    const email = location.state?.email; // Retrieve email from location state
+    const email = location.state?.email; 
 
     const handleClose = () => {
         setIsLoggedIn(false);
-        navigate('/');
+        navigate('/password-change');
     };
 
     return (
@@ -31,7 +31,7 @@ const EmailSent = () => {
                         </p>
                     )}
                     <button onClick={handleClose} className="close-button">
-                        Close
+                            Close 
                     </button>
                 </div>
             </div>

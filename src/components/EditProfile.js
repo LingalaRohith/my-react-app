@@ -38,17 +38,20 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
     const [showAddressInputs, setShowAddressInputs] = useState(!!profileData.address?.homeAddress);
     const [isChangingPassword, setIsChangingPassword] = useState(false);
 
-    const handleChange = (e) => {
+      const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        if (name === 'password' && value) {
-            setIsChangingPassword(true); // Detect password change
+    
+        if (name === 'password') {
+            setIsChangingPassword(value.trim() !== ''); 
         }
+    
         if (type === 'checkbox') {
-          setProfileData({ ...profileData, [name]: checked });
+            setProfileData({ ...profileData, [name]: checked });
         } else {
-          setProfileData({ ...profileData, [name]: value });
+            setProfileData({ ...profileData, [name]: value });
         }
-      };
+    };
+    
 
     const handleCreditCardChange = (index, e) => {
         const { name, value } = e.target;
