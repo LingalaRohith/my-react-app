@@ -30,7 +30,6 @@ function ManagePromotions({isLoggedIn, setLoggedIn}) {
 
     return (
         <div>
-<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
             <div className="manage-promotions"> 
             <h5>Manage Promotions</h5>
             <div className="promotion-list">

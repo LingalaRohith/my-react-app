@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import './signup.css';
 
-function Login({ setLoggedIn }) {
+function Login({ setLoggedIn, setAdmin }) {
   const navigate = useNavigate(); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,16 +37,16 @@ function Login({ setLoggedIn }) {
           localStorage.removeItem('userData'); 
         }
         if (email === 'rheakartha@gmail.com' || email === 'furwahturabi16@gmail.com' || email === 'catekimbrell@gmail.com' || email === 'rohith.lingala@uga.edu') {
+          setAdmin(true);
           navigate('/admin');
+
         } else {
           navigate('/');
         }
       };
       
       return (
-        <div>  
-          <Header/>
-    
+        <div>      
           <div className="signup-container">
               <h3>Log in:</h3>
               <form className="signup-form" onSubmit={handleLogin}>

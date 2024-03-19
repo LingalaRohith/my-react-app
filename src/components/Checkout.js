@@ -85,7 +85,6 @@ function Checkout({isLoggedIn, setLoggedIn}) {
 
   return (
     <>
-<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       <div className="order-summary-container">
         <div className="review-order-section">
           <h1>Review Order</h1>

@@ -63,7 +63,6 @@ function ManageMovies(isLoggedIn, setLoggedIn) {
 
     return (
         <div>
-<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
             <div className="manage-movies">
                 <h5>Manage Movies</h5>
                 <div className="add-movie-form">

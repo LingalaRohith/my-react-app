@@ -59,7 +59,6 @@ function ProfilePage({ isLoggedIn, setLoggedIn }) {
 
     return (
       <div>
-        <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
         <div className="profile-container">
           <h2>Profile</h2>
           <div className="profile-info">

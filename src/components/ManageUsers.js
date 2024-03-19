@@ -34,7 +34,6 @@ function ManageUsers({isLoggedIn, setLoggedIn}) {
 
     return (
         <div>
-<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
             <div className="manage-users">
                 <h5>Manage Users</h5>
                 <div className="add-user-form">

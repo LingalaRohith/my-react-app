@@ -89,7 +89,6 @@ function BookSeats({ isLoggedIn, setLoggedIn }) {
   
   return (
     <div>
-<Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       <div className="book-seats">
         {movie && (
           <>

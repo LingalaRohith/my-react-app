@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 import './Signup.js';
 
-const Hdr = ({ isLoggedIn, setLoggedIn }) => {
+const Hdr = ({ isLoggedIn, setLoggedIn, isAdmin, setAdmin }) => {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [userInitial, setUserInitial] = useState('');
@@ -21,6 +21,7 @@ const Hdr = ({ isLoggedIn, setLoggedIn }) => {
 
   const handleLogout = () => {
     setLoggedIn(false);
+    setAdmin(false);
     localStorage.removeItem('userEmail');
     localStorage.removeItem('userData');
     navigate('/login');
@@ -37,8 +38,8 @@ const Hdr = ({ isLoggedIn, setLoggedIn }) => {
     <div className="buttons">
         {isLoggedIn ? (
           <>
-            <Link to="/">
-              <button>Home</button>
+            <Link to={isAdmin ? "/admin" : "/"}>
+                <button>Home</button>
             </Link>
             <Link to="/">
               <button>Book Movies</button>

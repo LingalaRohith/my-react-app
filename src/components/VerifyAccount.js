@@ -18,7 +18,6 @@ const VerifyAccount = () => {
 
   return (
     <div>
-      <Header />
       <div className="verification-container"> 
         <h2>Verify Your Account</h2> 
         <p>Please enter the verification code sent to {email}</p>

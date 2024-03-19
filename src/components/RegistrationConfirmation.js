@@ -25,11 +25,6 @@ const RegistrationConfirmation = () => {
 
     return (
         <>
-            {isLoggedIn ? (
-                <Header loggedIn={true} />
-            ) : (
-                <Header />
-            )}
             <div className="dark-background">
                 <div className="confirmation-card">
                     <h1>Registration Successful</h1>

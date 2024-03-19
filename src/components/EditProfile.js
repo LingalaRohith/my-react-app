@@ -141,7 +141,6 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
     }
     return (
         <div>  
-            <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
             <div className="edit-profile-container">
                 <h2>Edit Profile</h2>
                 <form className="edit-profile-form" onSubmit={handleSubmit}>

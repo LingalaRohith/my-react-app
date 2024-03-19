@@ -21,16 +21,19 @@ import EmailSent from "./components/EmailSent"
 import PasswordChange from "./components/PasswordChange";
 import PasswordConfirmation from './components/PasswordConfirmation';
 import VerifyAccount from './components/VerifyAccount';
+import Header from './components/Header';
 function App() {
     const [isLoggedIn, setLoggedIn] = useState(true);
+    const [isAdmin, setAdmin] = useState(false);
   
     return (
       <div>
         <Router>
+          <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} isAdmin={isAdmin} setAdmin={setAdmin}/>
           <Routes>
             <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="signup" element={<Signup setLoggedIn={setLoggedIn} />} />
-            <Route path="login" element={<Login setLoggedIn={setLoggedIn} />} />
+            <Route path="login" element={<Login setLoggedIn={setLoggedIn} setAdmin={setAdmin}/>} />
             <Route path="moviespage" element={<MoviesPage isLoggedIn={isLoggedIn} />} />
             <Route path="forgot-password" element={<ForgotPassword isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="email-sent" element={<EmailSent />} />

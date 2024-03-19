@@ -105,7 +105,6 @@ function LandingPage({isLoggedIn, setLoggedIn}) {
 
   return (
     <div className="App">
-      <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/>
       <div className="movies-and-search-container">
       <div className="search-container">
           <select value={searchBy} onChange={(e) => setSearchBy(e.target.value)}>
