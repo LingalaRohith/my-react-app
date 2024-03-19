@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import logo from '../resources/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
@@ -9,21 +9,32 @@ const Hdr = ({ isLoggedIn, setLoggedIn, isAdmin, setAdmin }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [userInitial, setUserInitial] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
+
 
   useEffect(() => {
-    // Assuming user data is stored in localStorage as 'userData'
-    const userData = JSON.parse(localStorage.getItem('userData'));
-    if (userData) {
-      setUserInitial(userData.firstName.charAt(0).toUpperCase());
-      setFirstName(userData.firstName);
-    }
-  }, []);
+    const handleUserChange = () => {
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      if (userData) {
+        setUserInitial(userData.firstName.charAt(0).toUpperCase());
+        setFirstName(userData.firstName);
+        forceUpdate();
+      } else {
+        setUserInitial('');
+        setFirstName('');
+      }
+    };
+    handleUserChange();
+    window.addEventListener('user-data-changed', handleUserChange);
+    return () => window.removeEventListener('user-data-changed', handleUserChange);
+}, []);
 
   const handleLogout = () => {
     setLoggedIn(false);
     setAdmin(false);
     localStorage.removeItem('userEmail');
     localStorage.removeItem('userData');
+    window.dispatchEvent(new CustomEvent('user-data-changed'));
     navigate('/login');
   };
 

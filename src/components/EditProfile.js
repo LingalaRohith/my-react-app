@@ -125,16 +125,12 @@ function EditProfile({ isLoggedIn, setLoggedIn }) {
     
         setErrors(newErrors); // Update the state with newErrors
     
-        // Only navigate if there are no new errors
         if (Object.keys(newErrors).length === 0) {
             localStorage.setItem('userData', JSON.stringify(profileData));
-            // Send email notification for profile update
-            // Typically make an API call to your backend to send the email
-            // Example: sendProfileUpdateEmail(profileData);
+            window.dispatchEvent(new CustomEvent('user-data-changed'));
             navigate('/profilepage', { state: { userData: profileData } }); 
         }
-    };
-    
+    }        
     
     if (!profileData.creditCards) {
         setProfileData({ ...profileData, creditCards: [] });

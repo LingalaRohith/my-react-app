@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from './Header';
 import './signup.css';
 
 const Signup = () => {
@@ -14,6 +13,7 @@ const Signup = () => {
         confirmPassword: '',
         signUpForPromotions: false,
     });
+
     const [showPaymentFields, setShowPaymentFields] = useState(false);
     const [showAddressFields, setShowAddressFields] = useState(false);
     const [formErrors, setFormErrors] = useState({});
@@ -26,6 +26,7 @@ const Signup = () => {
         });
     };
 
+ 
     const validateForm = () => {
         const errors = {};
         const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
@@ -44,16 +45,20 @@ const Signup = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-      
+
         if (!validateForm()) {
-          return;
+            return;
         }
-      
-        // Here, include your registration logic like sending a verification code to the user's email
-        // If registration logic is successful, navigate to the verification code page
-        localStorage.setItem('signupData', JSON.stringify(formData));
+
+        // Simulate a successful signup by setting userData in localStorage
+        localStorage.setItem('userData', JSON.stringify({
+            firstName: formData.firstname,
+            // include other details as needed
+        }));
+        window.dispatchEvent(new CustomEvent('user-data-changed'));
+
         navigate('/verify-account', { state: { email: formData.email } });
-      };
+    };
 
     return (
         <div>
